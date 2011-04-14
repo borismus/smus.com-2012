@@ -1,0 +1,26 @@
+{% extends "skeleton/_base.html" %}
+
+{% block content %}
+
+<div id="post-content">
+	{% filter typogrify %}
+
+	{% markdown %}
+
+	{% block article %}
+	{% endblock %}
+		
+	{% endmarkdown %}
+
+	{% endfilter %}
+</div>
+
+{% include "skeleton/_disqus.html" %}
+
+{% endblock %}
+
+{% block after_content %}
+<aside id="sidebar-low">
+{% include "skeleton/_sidebar_low.html" %}
+</aside>
+{% endblock %}

@@ -1,0 +1,63 @@
+/* Project specific markup */
+section#main article {
+  padding-right: 5px;
+}
+
+.project {
+  margin-right: 10px;
+  margin-bottom: 10px;
+
+  cursor: pointer;
+  width: 275px;
+  height: 275px;
+  float: left;
+  background: #eee;
+  -webkit-border-radius: 10px;
+  padding: 15px;
+  position: relative;
+
+  .title {
+    position: absolute;
+    left: 0;
+    top: 30px;
+    font-family: Helvetica, Verdana, Arial;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 15px;
+    background: #eee;
+    opacity: 0.7
+  }
+
+  .description {
+    display: none;
+  }
+
+  img {
+    border: 0;
+    width: 100%;
+  }
+}
+
+.project:hover {
+  .title {
+    display: none;
+  }
+
+  .description {
+    position: absolute;
+    padding: 15px;
+    -webkit-border-radius: 10px;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: block;
+    background: #eee;
+    opacity: 0.9;
+
+    p {
+      margin-top: 0;
+    }
+  }
+}
+
+section article {
+  width: 96% !important;
+}

@@ -1,0 +1,52 @@
+#!/bin/bash
+USER=www-data
+HOST=127.0.0.1
+PORT=9001
+MAXCHILDREN=5
+MAXSPARE=5
+MINSPARE=2
+SITEPATH=/home/boris/public_html/guitarunleashed.com
+SITENAME=guitarunleashed
+PIDFILE=$SITEPATH/$SITENAME.pid
+
+start() {
+	echo -n "Starting Django FastCGI server: "
+	if [ -f $PIDFILE ]; then
+		echo -n "already running"
+	else
+		start-stop-daemon --quiet --start \
+		--pidfile $PIDFILE --chuid "$USER" \
+		--exec /usr/bin/env -- python $SITEPATH/$SITENAME/manage.py runfcgi \
+		--settings=settings \
+		host=$HOST port=$PORT pidfile=$PIDFILE \
+		maxchildren=$MAXCHILDREN maxspare=$MAXSPARE minspare=$MINSPARE 
+		chmod 400 $PIDFILE
+	fi
+	echo $SITENAME
+}
+stop() {
+	echo -n "Stopping Django FastCGI server: "
+	start-stop-daemon --stop --quiet --pidfile $PIDFILE || echo -n "not running"
+	if [ -f $PIDFILE ]; then
+		rm $PIDFILE
+	fi
+	echo $SITENAME
+}
+
+case "$1" in
+    start)
+      start
+  ;;
+    stop)
+      stop
+  ;;
+    restart)
+      stop
+      start
+  ;;
+    *)
+      echo "Usage: php-fastcgi {start|stop|restart}"
+      exit 1
+  ;;
+esac
+exit $RETVAL

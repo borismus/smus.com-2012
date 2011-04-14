@@ -1,0 +1,25 @@
+{% extends "_project.html" %}
+
+{% block title %}
+CrowdForge
+{% endblock %}
+
+{% block url %}
+http://borismus.com/crowdforge/
+{% endblock %}
+
+{% block description %}
+CrowdForge is a way of automatically executing complex task flows on Mechanical
+Turk. In practice, it’s a Django framework that takes output from MTurk HITs
+and uses it to create new MTurk HITs.
+
+[Press release][0] and [source code][1] available
+Covered at [New Scientist][2] and [CMU][3]
+
+[0]: http://reports-archive.adm.cs.cmu.edu/anon/hcii/abstracts/11-100.html
+[1]: https://github.com/borismus/CrowdForge
+[2]: http://www.newscientist.com/article/mg20927985.800-silicon-supervisor-gets-the-job-done-online.html
+[3]: http://www.cmu.edu/homepage/society/2011/winter/crowdforge.shtml
+{% endblock %}
+
+{% block image %}/media/images/projects/crowdforge.png{% endblock %}

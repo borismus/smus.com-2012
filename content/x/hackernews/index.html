@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>Hacker News</title> 
+  <link rel="stylesheet" href="external/jquery.mobile-1.0a2.min.css" />
+  <script src="external/jquery.min.js"></script>
+  <script src="external/jquery.mobile-1.0a2.min.js"></script>
+  <script src="external/phonegap.js"></script>
+  <script src="webintent.js"></script>
+  
+  <style>
+  /* Style listviews in item.html */
+  .ui-li-desc {white-space: normal !important; margin-top: -0.1em;}
+  .ui-li-count {top: 40%;}
+  /* Style iframes in submitlink.html and reply.html */
+  iframe.submitlink {width: 100%; min-height: 25em; border: none;}
+  iframe.reply {width: 100%; min-height: 100%; border: none;}
+  </style>
+</head> 
+<body> 
+
+  <div data-role="page">
+
+    <div data-role="header">
+      <a onclick="javascript:refresh();" data-theme="c" data-icon="gear">Refresh</a>
+      <h1>Hacker News</h1>
+      <a href="submitlink.html" data-theme="c" data-icon="check">Post</a>
+      
+    </div><!-- /header -->
+
+    <div data-role="content">
+      <ul data-role="listview" data-theme="c" data-counttheme="d" id="news">
+      </ul>
+    </div><!-- /content -->
+
+    <div data-role="footer">
+      <h4><a href="http://twitter.com/borismus">@borismus</a></h4>
+    </div><!-- /header -->
+  </div><!-- /page -->
+  <script src="scriptcache.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

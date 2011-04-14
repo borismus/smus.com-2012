@@ -1,0 +1,17 @@
+{% extends "_listing.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{site.url}}/media/css/projects.css"
+type="text/css" media="screen" charset="utf-8">
+{% endblock %}
+
+{% block content %}
+
+{% for project in page.node.walk_pages %}
+{% ifnotequal project.name 'index.html' %}
+{% include project %}
+{% endifnotequal %}
+{% endfor %}
+
+{% endblock %}
+<div class="clearfix"></div>

@@ -1,0 +1,179 @@
+$mainWidth: 630px;
+$sidebarWidth: 300px;
+$sidebarPadding: 30px;
+
+@mixin clearfix {
+  overflow: hidden;
+  clear: both;
+}
+
+@mixin sans {
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+}
+
+@mixin serif {
+  font-family: Palatino, 'Palatino Linotype', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include sans;
+}
+
+h1 { font-size: 26px; }
+h2 { font-size: 24px; }
+h3 { font-size: 22px; }
+h4 { font-size: 20px; }
+h5 { font-size: 18px; }
+h6 { font-size: 16px; }
+
+body {
+  @include serif;
+  overflow-x: hidden;
+  font-size: 16px;
+  line-height: 22px;
+  text-rendering: optimizeLegibility;
+}
+
+img.left {
+  float: left;
+  margin-left: -280px;
+}
+
+// Global layout of the page
+#container {
+  margin: 0 auto;
+}
+
+header {
+  nav {
+    @include sans;
+    float: left;
+    a {
+      display: inline-block;
+      margin-left: 5px;
+    }
+
+    img {
+    }
+  }
+}
+
+section#main {
+  clear: left;
+  margin-right: $sidebarWidth + $sidebarPadding;
+
+  article {
+    float: right;
+    width: $mainWidth;
+    padding: 5px 30px 0 0;
+  }
+}
+
+aside {
+  float: right;
+  width: $sidebarWidth;
+  padding: 15px;
+  background: #eee;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, white),
+    color-stop(0.1, #eee),
+    color-stop(0.8, #eee),
+    color-stop(1, white)
+  );
+
+
+  img.icon {
+    margin-right: 5px;
+  }
+}
+aside#sidebar {
+  clear: both;
+  img.self {
+    float: left;
+    border: 1px solid #333;
+    -webkit-box-shadow: 0px 0px 50px #6391DE;
+    margin-bottom: 20px;
+  }
+
+  p {
+    @include clearfix;
+  }
+
+  p.fixed.fix {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: $sidebarWidth;
+    padding: 15px;
+    margin-top: -10px;
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      color-stop(0.5, #eee),
+      color-stop(1, white)
+    );
+  }
+}
+
+aside#sidebar-low {
+  clear: right;
+}
+
+aside#sidebar-small {
+  display: none;
+}
+
+article {
+  ul {
+    padding: 0;
+
+    li {
+      list-style: none;
+
+      .date {
+        float: right;
+        color: #666;
+        font-size: 12px;
+        font-family: "Menlo", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+          "Courier", "Courier 10 Pitch", "Courier New", "monospace";
+      }
+    }
+  }
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+// Tweaks to the mobile version of the site
+@media all and (max-width: 1005px) {
+  aside {
+    float: left;
+  }
+
+  aside#sidebar {
+    display: none;
+  }
+  aside#sidebar-small {
+    display: block;
+  }
+  aside#sidebar-low {
+    margin-top: 0;
+  }
+  section#main {
+    article {
+      float: left;
+    }
+    margin-right: 0;
+  }
+}
+
+@media all and (max-width: 630px) {
+  article {
+    width: 350px;
+  }
+}

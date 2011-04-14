@@ -1,0 +1,95 @@
+{% block all %}
+
+<!DOCTYPE html>
+
+<html lang="en" class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>
+      {% block title %}
+      {% if page.title %}{{ page.title }} | {% endif %} {{ site.name }}
+      {% endblock %}
+    </title>
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    {% block feeds %}
+
+    <!-- Use feedburner here -->
+    <link href="{{site.url}}/blog/atom.xml" rel="alternate"
+    title="{{site.name}}" type="application/atom+xml"/>
+
+    {% endblock %}
+
+    {% block css %}
+
+    <link rel="stylesheet" href="{{site.url}}/media/css/base.css"
+    type="text/css" media="screen" charset="utf-8">
+
+    {% block extra_css %}
+    {% endblock %}
+
+    {% endblock %}
+
+    {% block js %}
+
+
+    {% block extra_js %}
+    {% endblock %}
+
+    {% endblock %}
+
+  </head>
+
+  <body>
+    <div id="container">
+      <header>
+      {% include "skeleton/_nav.html" %}
+      </header>
+
+      <aside id="sidebar">
+      {% include "skeleton/_sidebar.html" %}
+      </aside>
+
+      <section id="main">
+      <article>
+          {% if page.title %}
+          <h1>{{ page.title }}</h1>
+          {% endif %}
+          {% block content %}{% endblock %}
+        </article>
+      </section>
+
+      <aside id="sidebar-small">
+      {% include "skeleton/_sidebar.html" %}
+      </aside>
+
+      {% block after_content %}{% endblock %}
+
+      <footer>
+      </footer>
+
+    </div>
+
+    <script src="/media/js/jquery.js"></script>
+    <script src="/media/js/jquery.timeago.js"></script>
+    <script>
+      var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]]; // Change UA-XXXXX-X to be your site's ID 
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+        g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+        s.parentNode.insertBefore(g,s)}(document,"script"));
+    </script>
+
+  </body>
+
+</html>
+
+{% endblock %}
