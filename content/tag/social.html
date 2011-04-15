@@ -1,0 +1,23 @@
+{% extends "_listing.html" %}
+
+{%hyde
+  created: 2011-03-09 13:52:00
+  title: Social Posts
+%}
+
+{% block article %}
+
+{% recent_posts posts 100 page.blog_node %}
+
+<ul>
+	{% for post in posts %}
+  {% if 'social' in post.tags %}
+  <li>
+    <span class="list-date">{{post.created.date}}</span> 
+    <a href='/{{post.page_name}}'>{{post.title}}</a>
+  </li>
+  {% endif %}
+  {% endfor %}
+</ul>
+
+{% endblock %}

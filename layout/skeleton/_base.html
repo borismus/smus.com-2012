@@ -31,7 +31,13 @@
 
     {% block css %}
 
+    <link rel="stylesheet" href="{{site.url}}/media/css/boilerplate.css"
+    type="text/css" media="screen" charset="utf-8">
+
     <link rel="stylesheet" href="{{site.url}}/media/css/base.css"
+    type="text/css" media="screen" charset="utf-8">
+
+    <link rel="stylesheet" href="{{site.url}}/media/css/syntax.css"
     type="text/css" media="screen" charset="utf-8">
 
     {% block extra_css %}
@@ -52,7 +58,6 @@
   <body>
     <div id="container">
       <header>
-      {% include "skeleton/_nav.html" %}
       </header>
 
       <aside id="sidebar">
@@ -60,12 +65,7 @@
       </aside>
 
       <section id="main">
-      <article>
-          {% if page.title %}
-          <h1>{{ page.title }}</h1>
-          {% endif %}
-          {% block content %}{% endblock %}
-        </article>
+        {% block content %}{% endblock %}
       </section>
 
       <aside id="sidebar-small">
@@ -81,6 +81,8 @@
 
     <script src="/media/js/jquery.js"></script>
     <script src="/media/js/jquery.timeago.js"></script>
+    <script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
+    <script src="/media/js/base.js"></script>
     <script>
       var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]]; // Change UA-XXXXX-X to be your site's ID 
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;

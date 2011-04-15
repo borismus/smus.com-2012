@@ -2,17 +2,19 @@
 
 {% block content_body %}
 
-<div id="post-content">
-	{% filter typogrify %}
+{% filter typogrify %}
 
-	{% markdown %}
+{% markdown %}
 
-	{% block article %}
-	{% endblock %}
-		
-	{% endmarkdown %}
+<article>
+<h1>{{ page.title }}</h1>
 
-	{% endfilter %}
-</div>
+{% block article %}
+{% endblock %}
+</article>
+  
+{% endmarkdown %}
+
+{% endfilter %}
 
 {% endblock %}

@@ -1,7 +1,10 @@
 <span class="project">
   <img src="{% block image %}{% endblock %}" />
-  <span class="title">{% block title %}{% endblock %}</span>
-  <span class="description" onclick="window.location='{% block url %}{% endblock %}'">
+  <span class="front">
+    <span class="title">{% block title %}{% endblock %}</span>
+    <span class="date">{% block date %}{% endblock %}</span>
+  </span>
+  <span class="back" onclick="window.location='{% block url %}{% endblock %}'">
     {% markdown %}
     {% block description %}{% endblock %}
     {% endmarkdown %}

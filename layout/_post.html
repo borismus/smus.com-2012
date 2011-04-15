@@ -2,20 +2,27 @@
 
 {% block content %}
 
-<div id="post-content">
-	{% filter typogrify %}
+{% filter typogrify %}
 
-	{% markdown %}
+{% markdown %}
 
-	{% block article %}
-	{% endblock %}
-		
-	{% endmarkdown %}
+<article>
+<h1>{{ page.title }}</h1>
 
-	{% endfilter %}
+<div class="date">
+  Posted <span class="relative" title="{{ page.created.date }}"></span> on 
+  <span class="absolute">{{ page.created.date }}</span>
 </div>
 
+{% block article %}
+{% endblock %}
+
 {% include "skeleton/_disqus.html" %}
+</article>
+  
+{% endmarkdown %}
+
+{% endfilter %}
 
 {% endblock %}
 

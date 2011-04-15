@@ -1,6 +1,7 @@
 $mainWidth: 630px;
 $sidebarWidth: 300px;
 $sidebarPadding: 30px;
+$bodyColor: #222;
 
 @mixin clearfix {
   overflow: hidden;
@@ -8,31 +9,58 @@ $sidebarPadding: 30px;
 }
 
 @mixin sans {
-  font-family: Helvetica, Verdana, Arial, sans-serif;
+  font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
 }
 
 @mixin serif {
   font-family: Palatino, 'Palatino Linotype', serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  @include sans;
+@mixin fixed {
+  font-family: Consolas, Menlo, 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+  font-size: 14px;
 }
 
-h1 { font-size: 26px; }
+body {
+  @include serif;
+  color: $bodyColor;
+  overflow-x: hidden;
+  font-size: 16px;
+  line-height: 23px;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include sans;
+  font-weight: 300;
+}
+
+h1 { font-size: 30px; margin-bottom: 20px; }
 h2 { font-size: 24px; }
 h3 { font-size: 22px; }
 h4 { font-size: 20px; }
 h5 { font-size: 18px; }
 h6 { font-size: 16px; }
 
-body {
-  @include serif;
-  overflow-x: hidden;
-  font-size: 16px;
-  line-height: 22px;
-  text-rendering: optimizeLegibility;
+p { margin: 15px 0; }
+
+a, a:visited { 
+  text-decoration: none; 
+  border-bottom: 1px dotted #999;
+  color: $bodyColor;
 }
+a:hover {
+  border-bottom: 1px solid #666;
+}
+
+pre { 
+  @include fixed;
+  background: #eee; 
+  padding: 5px 20px;
+  margin: 10px -20px;
+}
+
+code { @include fixed; }
 
 img.left {
   float: left;
@@ -44,28 +72,13 @@ img.left {
   margin: 0 auto;
 }
 
-header {
-  nav {
-    @include sans;
-    float: left;
-    a {
-      display: inline-block;
-      margin-left: 5px;
-    }
-
-    img {
-    }
-  }
-}
-
 section#main {
-  clear: left;
   margin-right: $sidebarWidth + $sidebarPadding;
 
   article {
     float: right;
     width: $mainWidth;
-    padding: 5px 30px 0 0;
+    padding: 5px 30px 0 20px;
   }
 }
 
@@ -85,38 +98,19 @@ aside {
   );
 
 
-  img.icon {
-    margin-right: 5px;
-  }
 }
 aside#sidebar {
-  clear: both;
   img.self {
     float: left;
+    min-height: 150px;
+    min-width: 150px;
     border: 1px solid #333;
     -webkit-box-shadow: 0px 0px 50px #6391DE;
     margin-bottom: 20px;
   }
 
-  p {
-    @include clearfix;
-  }
-
-  p.fixed.fix {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: $sidebarWidth;
-    padding: 15px;
-    margin-top: -10px;
-    background-image: -webkit-gradient(
-      linear,
-      left top,
-      left bottom,
-      color-stop(0.5, #eee),
-      color-stop(1, white)
-    );
-  }
+  p { @include clearfix; }
+  a { font-weight: bold; }
 }
 
 aside#sidebar-low {
@@ -127,14 +121,53 @@ aside#sidebar-small {
   display: none;
 }
 
-article {
+nav {
+  .icons {
+    a { text-decoration: none; border: none; }
+    img { width: 32px; opacity: 0.5 }
+    img:hover { opacity: 1; box-shadow: 0 0 20px #6391DE; }
+  }
+
+  .message {
+    @include sans;
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  .message > * { display: none; }
+  .message .twitter { display: block; }
+}
+
+aside#sidebar nav.fix {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: $sidebarWidth;
+  padding: 15px;
+  margin-top: -10px;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.5, #eee),
+    color-stop(1, white)
+  );
+}
+
+article .date {
+  color: #666;
+  margin: 20px 0;
+}
+
+article.listing {
   ul {
     padding: 0;
+    margin: 0;
 
     li {
       list-style: none;
 
-      .date {
+      .list-date {
         float: right;
         color: #666;
         font-size: 12px;

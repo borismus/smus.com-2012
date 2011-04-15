@@ -2,6 +2,9 @@
 {% hyde
 title: Chrome Extension for thesixtyone
 created: 2010-10-31 08:09:10
+tags:
+- web
+- chrome
 %}
 
 {% block article %}
@@ -15,13 +18,13 @@ details of the implementation, message passing between pages of an
 extension, JavaScript injection and DOM event generation. 
 
 Wrapping a web application in an extension may sound deceptively easy:
-just load the website in an iframe in the background (via [background
-pages][]), and then control the website from the background page via
-commands from the popup page that appears when you click the extension
-icon in the toolbar. Not so fast! The key issue with this approach is
-the control part. For good reason, browser security disallows executing
-JavaScript in an embedded iframe if the src is another domain. The
-solution to this problem is two fold:
+just load the website in an iframe in the background (via 
+[background pages][]), and then control the website from the background page
+via commands from the popup page that appears when you click the extension icon
+in the toolbar. Not so fast! The key issue with this approach is the control
+part. For good reason, browser security disallows executing JavaScript in an
+embedded iframe if the src is another domain. The solution to this problem is
+two fold:
 
 1.  Chrome extensions can [inject custom javascript][] into web pages.
 2.  It's possible to [pass messages][] between multiple pages running in

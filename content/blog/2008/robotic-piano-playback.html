@@ -2,6 +2,8 @@
 {% hyde
 title: Robotic Piano Playback
 created: 2008-11-15 02:56:39
+tags:
+- physical
 %}
 
 {% block article %}
@@ -10,7 +12,9 @@ I've finally built a fully working piano playback robot. The usage is
 simple: someone plays or sings an arbitrary monophonic melody, and the
 robot, parked on a piano bench, will play it back.
 
-httpv://www.youtube.com/watch?v=Bo0eCSkjy-0 
+<iframe title="YouTube video player" width="600" height="480"
+  src="http://www.youtube.com/embed/Bo0eCSkjy-0" frameborder="0"
+  allowfullscreen></iframe>
 
 The physical construction of the robot is very simple: it consists of a car
 with a crane-like arm mounted on it. The arm is used to push down and release a
@@ -31,7 +35,7 @@ melody line to playing the melody back.
 
 1.  On the mac, using a [Python AppleScript bridge][], the QuickTime
     Player is invoked and starts capturing audio.
-    2.  Once the audio is captured into an AIFF file, a very useful 
+2.  Once the audio is captured into an AIFF file, a very useful 
     [pitch detection library][] called aubio processes the audio file and
     extracts raw frequency-to-time data, sampled at some tick rate.
     Compiling this library on OS X was quite a feat!
