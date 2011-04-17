@@ -1,7 +1,15 @@
+/*------
+Title: Boris Smus
+Author: boris@smus.com
+Note: please ask me before using this stylesheet
+*/
+
 $mainWidth: 630px;
 $sidebarWidth: 300px;
 $sidebarPadding: 30px;
-$bodyColor: #222;
+$bodyColor: #444;
+$green: #060;
+$glow: #4CC417;
 
 @mixin clearfix {
   overflow: hidden;
@@ -13,12 +21,16 @@ $bodyColor: #222;
 }
 
 @mixin serif {
-  font-family: Palatino, 'Palatino Linotype', serif;
+  font-family: 'PT Serif', Palatino, 'Palatino Linotype', serif;
 }
 
 @mixin fixed {
   font-family: Consolas, Menlo, 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
   font-size: 14px;
+}
+
+@mixin animate {
+  -webkit-transition: all 0.2s linear;
 }
 
 body {
@@ -32,15 +44,29 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   @include sans;
-  font-weight: 300;
 }
 
 h1 { font-size: 30px; margin-bottom: 20px; }
-h2 { font-size: 24px; }
-h3 { font-size: 22px; }
-h4 { font-size: 20px; }
-h5 { font-size: 18px; }
-h6 { font-size: 16px; }
+h2 { font-size: 25px; font-weight: 300; margin: 20px 0; }
+h3 { font-size: 20px; font-weight: 300; margin: 20px 0; }
+
+/* Hidden home icon */
+h1 {
+  position: relative;
+  a, a:hover {
+    display: none;
+    border: 0;
+    position: absolute;
+    top: -5px;
+    left: -30px;
+    padding: 5px;
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+h1:hover a { display: block; }
 
 p { margin: 15px 0; }
 
@@ -48,8 +74,10 @@ a, a:visited {
   text-decoration: none; 
   border-bottom: 1px dotted #999;
   color: $bodyColor;
+  @include animate;
 }
 a:hover {
+  color: $green;
   border-bottom: 1px solid #666;
 }
 
@@ -57,17 +85,19 @@ pre {
   @include fixed;
   background: #eee; 
   padding: 5px 20px;
-  margin: 10px -20px;
+  margin: 10px 0 10px -20px;
 }
 
 code { @include fixed; }
 
-img.left {
-  float: left;
-  margin-left: -280px;
-}
+img,video,object { max-width: 100%; }
 
 // Global layout of the page
+#colorstrip {
+  width: 100%;
+  height: 8px;
+  background: #4CC417;
+}
 #container {
   margin: 0 auto;
 }
@@ -83,6 +113,7 @@ section#main {
 }
 
 aside {
+  border-left: 1px dashed #aaa;
   float: right;
   width: $sidebarWidth;
   padding: 15px;
@@ -105,16 +136,31 @@ aside#sidebar {
     min-height: 150px;
     min-width: 150px;
     border: 1px solid #333;
-    -webkit-box-shadow: 0px 0px 50px #6391DE;
+    -webkit-box-shadow: inset 0px 0px 50px $glow;
     margin-bottom: 20px;
   }
 
   p { @include clearfix; }
-  a { font-weight: bold; }
+  a {
+    @include animate;
+    font-weight: bold;
+ }
+  &:hover a { color: $green; }
 }
 
 aside#sidebar-low {
   clear: right;
+
+  ul {
+    margin-left: 20px;
+  }
+
+  li {
+    overflow: hidden;
+    padding-left: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
 
 aside#sidebar-small {
@@ -124,8 +170,12 @@ aside#sidebar-small {
 nav {
   .icons {
     a { text-decoration: none; border: none; }
-    img { width: 32px; opacity: 0.5 }
-    img:hover { opacity: 1; box-shadow: 0 0 20px #6391DE; }
+    img {
+      @include animate;
+      width: 32px;
+      opacity: 0.5;
+    }
+    img:hover { opacity: 1; box-shadow: 0 0 20px $glow; }
   }
 
   .message {
@@ -139,6 +189,7 @@ nav {
 }
 
 aside#sidebar nav.fix {
+  border-left: 1px dashed #aaa;
   position: fixed;
   top: 0;
   right: 0;
@@ -209,4 +260,12 @@ article.listing {
   article {
     width: 350px;
   }
+}
+
+/* Hide ugly disquss elements */
+article {
+  /* Bye bye trackback URL */
+  .dsq-trackback-url { display: none; }
+  /* Bye bye ugly disquss logo */
+  .dsq-brlink { display: none; }
 }

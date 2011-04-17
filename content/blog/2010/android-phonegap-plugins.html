@@ -2,7 +2,7 @@
 {% hyde
 title: WebIntent, an Android PhoneGap Plugin
 created: 2010-11-25 18:42:26
-tags:
+categories:
 - web
 - android
 %}
@@ -72,8 +72,9 @@ invocation:
     // deviceready is PhoneGap's init event
     document.addEventListener('deviceready', function () {
       window.plugins.webintent.getExtra(WebIntent.EXTRA\_TEXT, function (url) {
-        // url is the value of EXTRA\_TEXT }, function() { // There was no extra
-        supplied.
+        // url is the value of EXTRA_TEXT 
+      }, function() {
+        // There was no extra supplied.
       });
     });
 
@@ -100,8 +101,7 @@ The plugin API is defined in the `MyPlugin` JavaScript class:
 
     var MyPlugin = function () {};
     MyPlugin.prototype.foo = function (params, success, fail) {
-      return
-      PhoneGap.exec(success, fail, 'MyPlugin', 'startActivity', [params]);
+      return PhoneGap.exec(success, fail, 'MyPlugin', 'startActivity', [params]);
     };
 
 The plugin needs to be registered with PhoneGap before it can be
@@ -109,8 +109,9 @@ used.
 
     PhoneGap.addConstructor(function () {
       // Creates window.plugins.myplugin, an instance of MyPlugin
-      PhoneGap.addPlugin('myplugin', new MyPlugin()); // Binds MyPlugin to the
-      Java class com.example.MyPlugin PluginManager.addService('MyPlugin', 'com.example.MyPlugin');
+      PhoneGap.addPlugin('myplugin', new MyPlugin()); 
+      // Binds MyPlugin to the Java class com.example.MyPlugin 
+      PluginManager.addService('MyPlugin', 'com.example.MyPlugin');
     });
 
 

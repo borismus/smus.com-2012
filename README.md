@@ -17,5 +17,11 @@ Inspiration drawn from
 - http://limi.net/
 - http://www.smashingmagazine.com/
 - http://stevelosh.com/blog/2010/01/moving-from-django-to-hyde/
+  - technical details about hyde
 - http://www.dougfritz.com/
+  - projects page
 - http://jinja.pocoo.org/docs/
+- http://www.markboulton.co.uk/ 
+  - nice typography
+  - top bar and reflowing layout
+  - nice borders

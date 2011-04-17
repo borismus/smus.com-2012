@@ -1,12 +1,15 @@
 <p class="errata">If you see a typo, an error, or any other issue, please <a
   href="https://github.com/borismus/smus.com/issues">file a bug</a>.</p>
 
+{% recent_posts posts 3 page.blog_node ? %}
+{% if posts %}
 <p class="related">Want to read more?</p>
 <ul>
-  <li>Article 1</li>
-  <li>Article 2</li>
-  <li>Article 3</li>
+{% for post in posts %}
+<li><a href="/{{post.page_name}}">{{post.title}}</a></li>
+{% endfor %}
 </ul>
+{% endif %}
 
 <p class="copyright">
 &copy; 2011 {{site.name}}

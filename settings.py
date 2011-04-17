@@ -50,52 +50,77 @@ APPEND_SLASH = True
 
 # Extensions do not support wildcards.
 
-SITE_PRE_PROCESSORS = {
-    '/': {
-        'hydeengine.site_pre_processors.NodeInjector' : {
-               'variable' : 'blog_node',
-               'path' : 'content/blog'
-        }
-    }
+CATEGORIES = {
+  'design': {
+    'description': 'designy stuff'
+  },
+  'music': {
+    'description': 'm stuff'
+  },
+  'physical': {
+    'description': 'phys stuff'
+  },
+  'social': {
+    'description': 'social stuff'
+  },
+  'web': {
+    'description': 'web stuff'
+  }
 }
+
+SITE_PRE_PROCESSORS = {
+    'blog': {
+      'hydeengine.site_pre_processors.CategoriesManager' : {
+          'template': '_category.html',
+          'listing_template': '_categorylist.html',
+          'meta': CATEGORIES
+       }
+    },
+    '/': {
+      'hydeengine.site_pre_processors.NodeInjector' : {
+        'variable' : 'blog_node',
+        'path' : 'content/blog'
+        }
+      }
+    }
 
 
 MEDIA_PROCESSORS = {
     '*':{
-        '.scss':('hydeengine.media_processors.TemplateProcessor',
-                 'hydeengine.media_processors.SASS',
-                 'hydeengine.media_processors.CSSmin',
-                ),
-        '.js':(
-                'hydeengine.media_processors.TemplateProcessor',
-                'hydeengine.media_processors.JSmin',),
+      '.scss':('hydeengine.media_processors.TemplateProcessor',
+        'hydeengine.media_processors.SASS',
+        'hydeengine.media_processors.CSSmin',
+        ),
+      '.js':(
+        'hydeengine.media_processors.TemplateProcessor',
+        'hydeengine.media_processors.JSmin',),
+      }
     }
-}
 
 CONTENT_PROCESSORS = {
     'x/': {
-        '*.*' :
-            ('hydeengine.content_processors.PassthroughProcessor',)
-            }
-}
+      '*.*' :
+      ('hydeengine.content_processors.PassthroughProcessor',)
+      }
+    }
 
 SITE_POST_PROCESSORS = {
-    # 'media/js': {
-    #        'hydeengine.site_post_processors.FolderFlattener' : {
-    #                'remove_processed_folders': True,
-    #                'pattern':"*.js"
-    #        }
-    #    }
-}
+    'blog': {
+      'hydeengine.site_post_processors.FolderFlattener' : {
+        'remove_processed_folders': True,
+        'pattern': '*.html'
+        }
+      }
+    }
 
 CONTEXT = {
     'GENERATE_CLEAN_URLS': GENERATE_CLEAN_URLS
-}
+    }
 
 FILTER = {
     'include': (".htaccess",),
     'exclude': (".*","*~")
-}
+    }
 
 
 #Processor Configuration
@@ -111,14 +136,14 @@ GROWL = None
 # path for YUICompressor, or None if you don't
 # want to compress JS/CSS. Project homepage:
 # http://developer.yahoo.com/yui/compressor/
-#YUI_COMPRESSOR = "./lib/yuicompressor-2.4.2.jar"
-YUI_COMPRESSOR = None
+YUI_COMPRESSOR = "./lib/yuicompressor-2.4.2.jar"
+#YUI_COMPRESSOR = None
 
 # path for Closure Compiler, or None if you don't
 # want to compress JS/CSS. Project homepage:
 # http://closure-compiler.googlecode.com/
-#CLOSURE_COMPILER = "./lib/compiler.jar"
-CLOSURE_COMPRILER = None
+CLOSURE_COMPILER = "./lib/compiler.jar"
+#CLOSURE_COMPRILER = None
 
 # path for HSS, which is a preprocessor for CSS-like files (*.hss)
 # project page at http://ncannasse.fr/projects/hss
@@ -135,4 +160,4 @@ TEMPLATE_DIRS = (LAYOUT_DIR, CONTENT_DIR, TMP_DIR, MEDIA_DIR)
 INSTALLED_APPS = (
     'hydeengine',
     'django.contrib.webdesign',
-)
+    )
