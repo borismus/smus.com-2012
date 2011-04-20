@@ -11,7 +11,7 @@
 
 <ul>
   {% for post in posts %}
-  <li>
+  <li onclick="javascript:location.href='/{{post.page_name}}'";>
     <span class="list-date">{{post.created.date}}</span> 
     <a href='/{{post.page_name}}'>{{post.title}}</a>
   </li>

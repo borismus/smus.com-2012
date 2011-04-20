@@ -5,13 +5,12 @@ $(function() {
     var className = $(this).attr('class');
     console.log('hover on img. className ' + className);
     // Hide all messages, only show the one corresponding to the className
-    $('nav .message > *').hide()
+    $('nav .message > *').hide();
     $('nav .message .' + className).show();
   });
 
   // Make the navbar persist if we scroll far enough
-  var offsetTop = $('nav').offset().top;
-  console.log(offsetTop);
+  offsetTop = 325;
   $(window).scroll(function() {
     if ($(this).scrollTop() > offsetTop) {
       $('nav').addClass('fix');

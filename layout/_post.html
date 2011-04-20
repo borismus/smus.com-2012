@@ -7,6 +7,8 @@
 {% markdown %}
 
 <article>
+
+{% article %}
 <h1>
   {{ page.title }}
   <a href="/"><img src="/media/images/nav/home.png"/></a>
@@ -19,6 +21,7 @@
 
 {% block article %}
 {% endblock %}
+{% endarticle %}
 
 {% include "skeleton/_disqus.html" %}
 </article>

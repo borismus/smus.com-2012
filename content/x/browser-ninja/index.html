@@ -1,0 +1,239 @@
+<head>
+<title>DOM Gravity Sample</title>
+<!--
+Emulating gravity on DOM elements
+-->
+<meta content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;' name='viewport' />
+<meta name="viewport" content="width=device-width" />
+<script src="jquery.min.js"></script>
+<script src="magictouch.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Cabin+Sketch:bold' rel='stylesheet' type='text/css'>
+<style>
+.frame {position: absolute; left: 0; bottom: -128px; width: 128px; height: 128px; background: url(images/html5.png); -webkit-transition: -webkit-transform 0.3s linear;}
+.chrome {background: url(images/chrome.png) 0 0;}
+.ie {background: url(images/ie.png) 0 0;}
+.firefox {background: url(images/firefox.png) 0 0;}
+.opera {background: url(images/opera.png) 0 0;}
+.safari {background: url(images/safari.png) 0 0;}
+.blink {background: url(images/blink.png) 0 0;}
+#console {position: absolute; right: 0; top: 0;}
+body { margin: 0px; overflow: hidden; }
+canvas {  position: relative; }
+h1 { font-family: 'Cabin Sketch', arial, serif; position: absolute; top: 40%; left: 0; width: 100%; text-align: center; font-size: 60px; z-index: 99}
+</style>
+</head>
+
+<body>
+<div id="console"></div>
+<h1 id="announce">HTTP 200 OK, Play!</h1>
+
+<script src="harmony/src/js/harmony.js"></script>
+<script>
+// Constants
+var SPREAD_VX = 20;
+var SPREAD_VY = 50;
+var MIN_VY = 70;
+var F_G = 10;
+var ANGLE_INCREMENT = 15;
+var BROWSERS = ['chrome', 'firefox', 'opera', 'safari', 'ie'];
+var MAX_MISSES = 5;
+
+var maxHeight = window.innerHeight;
+var maxWidth = window.innerWidth;
+
+var misses = 0;
+
+function init() {
+  harmony();
+  log('init')
+  // Assign random velocity vectors to all objects
+  $('.frame').each(function(index, item) {
+    $(item).data('vx', (Math.random() * 2 - 1) * SPREAD_VX);
+    $(item).data('vy', -(MIN_VY + Math.random() * SPREAD_VY));
+    $(item).data('px', 0);
+    $(item).data('py', 0);
+  });
+
+  document.body.addEventListener('touchmove', function(event) {
+    //log('document touchmove');
+    // Get the touch point
+    var touch = event.targetTouches[0];
+    // Determine if any DOM elements were touched
+    $('.frame').each(function(index, item) {
+      if (contains(item, [touch.pageX, touch.pageY])) {
+        //log('touched item #' + index + '!');
+        var $item = $(item);
+        var offset = $item.offset();
+        $item.remove();
+        if ($item.hasClass('blink')) {
+          // Game over
+          announce('406 Not Acceptable <blink>', 10000);
+          pause();
+          harmony.context.fillStyle = 'red';
+          harmony.context.fillRect(0, 0, window.innerWidth, window.innerHeight);
+        }
+        var remnant = new Image();
+        remnant.src = 'images/splat.png';
+        remnant.onload = function() {
+          harmony.context.drawImage(remnant, offset.left, offset.top);
+        }
+      }
+    });
+    // Prevent iPad from scrolling
+    event.preventDefault();
+  });
+}
+
+
+function log(message) {
+  $('#console').prepend('<div>' + message + '</div>');
+}
+
+function contains(element, point) {
+  // Returns true if the specified element contains a point
+  var $e = $(element);
+  var offset = $e.offset();
+  var x = offset.left;
+  var y = offset.top;
+  var px = point[0], py = point[1];
+  var width = $e.width();
+  var height = $e.height();
+  //log('bounding box: ' + [x, y, width, height]);
+  //log('point: ' + point);
+  return (x < px && px < (x + width)) && (y < py && py < (y + height));
+}
+
+setInterval(function() {
+  $('#console').empty();
+}, 2000);
+
+var gameLoopTimer;
+function play() {
+  gameLoopTimer = setInterval(gameLoop, 250);
+}
+
+function pause() {
+  clearInterval(gameLoopTimer);
+}
+
+function restart() {
+  misses = 0;
+  play();
+}
+
+
+// Each object is a DOM element with data attribute: velocity vector
+// Game loop runs every 1/8th of a second
+function gameLoop() {
+  // Update each object with... 
+  $('.frame').each(function(index, item) {
+    var obj = $(item);
+		// position based on the current velocity
+    move(obj);
+    // a new velocity vector based on F_g
+    accelerate(obj);
+  });
+
+  // Fade the canvas a little bit
+  harmony.context.fillStyle = 'rgba(255,255,255,0.5)';
+  harmony.context.fillRect(0, 0, window.innerWidth, window.innerHeight);
+
+  //console.log($('.frame').length);
+  if ($('.frame').length === 0) {
+    // Pause game loop.
+    pause();
+    setTimeout(function() {
+      announce('HTTP 100 Continue');
+    }, 500);
+    setTimeout(function() {
+      createWave();
+      harmony.context.fillStyle = 'white';
+      harmony.context.fillRect();
+      //$('canvas').attr('width', $('canvas').attr('width'));
+      // Resume game loop
+      play();
+    }, 1000);
+  }
+}
+
+function move(obj) {
+  // Move object according to velocity
+  var offset = obj.offset();
+  var newLeft = offset.left + obj.data('vx');
+  var newTop = offset.top + obj.data('vy');
+  if (newTop > maxHeight + obj.height()) {
+    if (! obj.hasClass('blink')) {
+      // If object is out of bounds and not a blink, remove it
+      misses += 1;
+      // Termination conditions
+      if (misses == MAX_MISSES) {
+        // Stop the game loop until user prompts again
+        pause();
+        // 403 Forbidden 
+        announce('HTTP 404 Victory not found!', 100000);
+        return;
+      }
+      announce('HTTP 410 Gone (' + (MAX_MISSES - misses) + ' more chances)');
+    }
+    obj.remove();
+  } else {
+    // Otherwise, carry on!
+    obj.data('px', obj.data('px') + obj.data('vx'));
+    obj.data('py', obj.data('py') + obj.data('vy'));
+    obj.data('angle', obj.data('angle') + obj.data('r_speed'));
+    var translate = 'translate(' + obj.data('px') + 'px,' + obj.data('py') + 'px)';
+    var rotate = 'rotate3d(' + obj.data('r_direction') + obj.data('angle') + 'deg)';
+    obj.css('-webkit-transform', translate + ' ' + rotate);
+  }
+}
+
+function accelerate(obj) {
+  // Change object's velocity vector
+  obj.data('vy', obj.data('vy') + F_G);
+}
+
+function createWave() {
+  // Creates a new wave of flying objects
+  var count = 1 + Math.floor(Math.random() * 5);
+  for (var i = 0; i < count; i++) {
+    makeThrowie();
+  }
+  // Small chance of getting a bomb
+  if (Math.floor(Math.random() * 3) == 0) {
+    makeThrowie(true);
+  }
+
+}
+
+function makeThrowie(bomb) {
+  var left = Math.floor(Math.random() * document.body.clientWidth);
+  var browser = bomb ? 'blink' : BROWSERS[Math.floor(Math.random() * BROWSERS.length)];
+  var item = $('<div class="frame" style="left: ' + left + 'px;"></div>')
+    .data('vx', (Math.random() * 2 - 1) * SPREAD_VX)
+    .data('vy', -(MIN_VY + Math.random() * SPREAD_VY))
+    .data('px', 0)
+    .data('py', 0)
+    .data('angle', 0)
+    .data('r_speed', Math.floor(Math.random() * 20))
+    .data('r_direction', Math.random() + ',' + Math.random() + ',0,')
+    .addClass(browser)
+    .appendTo(document.body);
+}
+
+function announce(message, duration) {
+  if (!duration) {
+    duration = 1500;
+  }
+  $announce = $('#announce').text(message).fadeIn('fast');
+  setTimeout(function() {
+    $announce.fadeOut('slow');
+  }, duration);
+}
+
+init();
+setTimeout(function() {
+  play();
+}, 1000);
+</script>
+<object id="tuio" type="application/x-tuio" style="width: 0px; height: 0px;">Plugin FAILED to load</object>
+</body>

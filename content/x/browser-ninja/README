@@ -1,0 +1,10 @@
+Multi-touch demo
+================
+
+Demonstrating the ForwardTouch.js framework which creates standards-compliant
+touch events based on the events captured by the TUIO NPAPI browser plugin.
+
+Fruit Ninja clone using browser icons.
+
+TODO: 
+- Make bombs (what's a good bomb equivalent?)

@@ -4,8 +4,8 @@ section#main article {
 }
 
 .project {
-  margin-right: 12px;
-  margin-bottom: 12px;
+  margin-right: 10px;
+  margin-bottom: 10px;
 
   cursor: pointer;
   width: 295px;
@@ -34,6 +34,17 @@ section#main article {
 
   .back {
     display: none;
+    -webkit-transition: opacity 1s linear;
+    position: absolute;
+    padding: 15px;
+    -webkit-border-radius: 10px;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #eee;
+    opacity: 0;
+
+    p {
+      margin-top: 0;
+    }
   }
 
   img {
@@ -48,17 +59,8 @@ section#main article {
   }
 
   .back {
-    position: absolute;
-    padding: 15px;
-    -webkit-border-radius: 10px;
-    top: 0; left: 0; right: 0; bottom: 0;
     display: block;
-    background: #eee;
     opacity: 0.9;
-
-    p {
-      margin-top: 0;
-    }
   }
 }
 

@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+scp -r . boris@smus.com:~/public_html/smus.com/x/ninja

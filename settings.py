@@ -69,13 +69,6 @@ CATEGORIES = {
 }
 
 SITE_PRE_PROCESSORS = {
-    'blog': {
-      'hydeengine.site_pre_processors.CategoriesManager' : {
-          'template': '_category.html',
-          'listing_template': '_categorylist.html',
-          'meta': CATEGORIES
-       }
-    },
     '/': {
       'hydeengine.site_pre_processors.NodeInjector' : {
         'variable' : 'blog_node',
@@ -83,7 +76,6 @@ SITE_PRE_PROCESSORS = {
         }
       }
     }
-
 
 MEDIA_PROCESSORS = {
     '*':{

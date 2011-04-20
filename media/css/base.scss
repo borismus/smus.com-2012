@@ -1,12 +1,11 @@
-/*------
-Title: Boris Smus
-Author: boris@smus.com
-Note: please ask me before using this stylesheet
-*/
+/*
+ * Title: Boris Smus
+ * Author: boris@smus.com
+ */
 
-$mainWidth: 630px;
+$mainWidth: 600px;
 $sidebarWidth: 300px;
-$sidebarPadding: 30px;
+$sidebarPadding: 60px;
 $bodyColor: #444;
 $green: #060;
 $glow: #4CC417;
@@ -30,7 +29,14 @@ $glow: #4CC417;
 }
 
 @mixin animate {
-  -webkit-transition: all 0.2s linear;
+  -webkit-transition: color 0.3s linear;
+  -moz-transition: color 0.3s linear;
+}
+
+@mixin box-shadow {
+  -moz-box-shadow: 5px 5px 5px #ccc;
+  -webkit-box-shadow: 5px 5px 5px #ccc;
+  box-shadow: 5px 5px 5px #ccc;
 }
 
 body {
@@ -44,11 +50,13 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   @include sans;
+  margin: 20px 0;
+  font-weight: 300;
 }
 
-h1 { font-size: 30px; margin-bottom: 20px; }
-h2 { font-size: 25px; font-weight: 300; margin: 20px 0; }
-h3 { font-size: 20px; font-weight: 300; margin: 20px 0; }
+h1 { font-size: 36px; line-height: 40px; }
+h2 { font-size: 25px; }
+h3 { font-size: 20px; }
 
 /* Hidden home icon */
 h1 {
@@ -57,9 +65,9 @@ h1 {
     display: none;
     border: 0;
     position: absolute;
-    top: -5px;
-    left: -30px;
-    padding: 5px;
+    top: -10px;
+    left: -40px;
+    padding: 10px;
     img {
       width: 24px;
       height: 24px;
@@ -70,8 +78,8 @@ h1:hover a { display: block; }
 
 p { margin: 15px 0; }
 
-a, a:visited { 
-  text-decoration: none; 
+a, a:visited {
+  text-decoration: none;
   border-bottom: 1px dotted #999;
   color: $bodyColor;
   @include animate;
@@ -81,11 +89,14 @@ a:hover {
   border-bottom: 1px solid #666;
 }
 
-pre { 
+em { font-style: italic; }
+
+pre {
   @include fixed;
-  background: #eee; 
+  background: #eee;
   padding: 5px 20px;
   margin: 10px 0 10px -20px;
+  border: 1px solid #ddd;
 }
 
 code { @include fixed; }
@@ -93,68 +104,98 @@ code { @include fixed; }
 img,video,object { max-width: 100%; }
 
 // Global layout of the page
-#colorstrip {
+header {
+  position: fixed;
+  z-index: 100;
   width: 100%;
-  height: 8px;
+  height: 15px;
   background: #4CC417;
+  font-size: 11px;
+  padding: 6px;
+  text-transform: uppercase;
+  background-image: -webkit-gradient( linear, left bottom, left top, from(#45B215), to(#4CC417));
+  background-image: -moz-linear-gradient(#45B215, #4CC417);
+  -webkit-box-shadow: inset 0 -1px 2px rgba(0,0,0,.2), 0 15px 15px rgba(255,255,255,1);
+  -moz-box-shadow: inset 0 -1px 2px rgba(0,0,0,.2), 0 15px 15px rgba(255,255,255,1);
+
+  a, a:visited, a:active {
+    position: relative;
+    color: #eee;
+    border: 0;
+    letter-spacing: 1px;
+    padding: 6px 10px;
+    -webkit-transition: background .2s linear;
+    -moz-transition: background .2s linear;
+    &:hover {
+      color: #fff; 
+      border: 0;
+      -webkit-box-shadow: inset 0 1px 4px rgba(0,0,0,.2);
+      -moz-box-shadow: inset 0 1px 4px rgba(0,0,0,.2);
+      background: rgba(0,0,0,.2);
+    }
+  }
+
+  span {position: absolute; top: 2px;}
+  .left {left: 10px;}
+  .right {
+    right: 10px;
+    a { margin-left: 5px; }
+  }
 }
 #container {
+  clear: both;
   margin: 0 auto;
 }
 
 section#main {
+  margin-top: 30px;
   margin-right: $sidebarWidth + $sidebarPadding;
 
-  article {
-    float: right;
-    width: $mainWidth;
-    padding: 5px 30px 0 20px;
-  }
+  /* terrible hack for unknown html generation */
+  &> p { display: none; }
 }
+
+article {
+  float: right;
+  width: $mainWidth;
+  padding: 5px 60px;
+}
+
 
 aside {
-  border-left: 1px dashed #aaa;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
   float: right;
   width: $sidebarWidth;
-  padding: 15px;
+  padding: 25px;
   background: #eee;
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    color-stop(0, white),
-    color-stop(0.1, #eee),
-    color-stop(0.8, #eee),
-    color-stop(1, white)
-  );
-
-
-}
-aside#sidebar {
+  background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0, white), color-stop(0.1, #eee), color-stop(0.8, #eee), color-stop(1, white));
+  background-image: -moz-linear-gradient( top, white, #eee, #eee, #eee, #eee, white);
+  @include animate;
   img.self {
+    margin-top: 5px;
+    border: 1px solid #ddd;
     float: left;
     min-height: 150px;
     min-width: 150px;
-    border: 1px solid #333;
-    -webkit-box-shadow: inset 0px 0px 50px $glow;
     margin-bottom: 20px;
+    -webkit-box-shadow: 0 2px 3px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 2px 3px rgba(0,0,0,.2);
   }
 
   p { @include clearfix; }
-  a {
-    @include animate;
-    font-weight: bold;
- }
-  &:hover a { color: $green; }
+  a { font-weight: bold; }
+  &:hover {
+    color: #777;
+    a { color: $green; }
+  }
 }
 
 aside#sidebar-low {
   clear: right;
 
-  ul {
-    margin-left: 20px;
-  }
-
+  a {font-weight: normal;}
+  ul { margin-left: 10px; }
   li {
     overflow: hidden;
     padding-left: 0;
@@ -173,36 +214,42 @@ nav {
     img {
       @include animate;
       width: 32px;
+      height: 32px;
       opacity: 0.5;
+      margin: -2px;
+      padding: 2px;
     }
-    img:hover { opacity: 1; box-shadow: 0 0 20px $glow; }
-  }
-
-  .message {
-    @include sans;
-    font-size: 14px;
-    line-height: 14px;
+    img:hover {
+      opacity: 1;
+      border-radius: 20px;
+      -webkit-transform: scale(1.3);
+      -moz-transform: scale(1.3);
+      box-shadow: inset 0 0 20px $glow; 
+    }
   }
 
   .message > * { display: none; }
   .message .twitter { display: block; }
+
+  ul {
+    li {
+      img { width: 24px; height: 24px; }
+      a { display: inline-block; margin-top: -5px; }
+    }
+  }
 }
 
 aside#sidebar nav.fix {
-  border-left: 1px dashed #aaa;
+  border-left: 1px solid #ddd;
+  padding-left: 1px;
   position: fixed;
-  top: 0;
+  top: 5px;
   right: 0;
-  width: $sidebarWidth;
-  padding: 15px;
-  margin-top: -10px;
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    color-stop(0.5, #eee),
-    color-stop(1, white)
-  );
+  width: $sidebarWidth + 1;
+  padding: 25px;
+  background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0.5, #eee), color-stop(1, white));
+  background-image: -moz-linear-gradient( top, #eee, #eee, white);
+  
 }
 
 article .date {
@@ -213,19 +260,31 @@ article .date {
 article.listing {
   ul {
     padding: 0;
-    margin: 0;
+    margin: 30px 0px 40px 0px;
+  }
 
-    li {
-      list-style: none;
+  li {
+    margin-bottom: 5px;
+    cursor: pointer;
+    list-style: none;
 
-      .list-date {
-        float: right;
-        color: #666;
-        font-size: 12px;
-        font-family: "Menlo", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
-          "Courier", "Courier 10 Pitch", "Courier New", "monospace";
-      }
+    .list-date {
+      float: right;
+      color: #999;
     }
+  }
+
+  a {
+    -webkit-transition: all .1s linear;
+    -moz-transition: all .1s linear;
+    position: relative;
+    left: 0px;
+  }
+
+  li:hover a {
+    left: 10px;
+    color: forestgreen;
+    border-bottom: 1px solid forestgreen;
   }
 }
 
@@ -233,8 +292,18 @@ article.listing {
   @include clearfix;
 }
 
-// Tweaks to the mobile version of the site
-@media all and (max-width: 1005px) {
+/* Hide ugly disquss elements */
+article {
+  /* Bye bye trackback URL */
+  .dsq-trackback-url { display: none; }
+  /* Bye bye ugly disquss logo */
+  .dsq-brlink { display: none; }
+  /* Bye bye footer */
+  #dsq-footer { display: none; }
+}
+
+/** MOBILE LAYOUTS */
+@media all and (max-width: 1075px) {
   aside {
     float: left;
   }
@@ -244,6 +313,7 @@ article.listing {
   }
   aside#sidebar-small {
     display: block;
+    margin-left: 10px;
   }
   aside#sidebar-low {
     margin-top: 0;
@@ -256,16 +326,12 @@ article.listing {
   }
 }
 
-@media all and (max-width: 630px) {
-  article {
-    width: 350px;
-  }
+@media all and (max-width: 720px) {
+  #container { width: 90%; }
+  article {padding: 0; width: 100%; }
+  aside { width: 36%; margin: 0; }
 }
 
-/* Hide ugly disquss elements */
-article {
-  /* Bye bye trackback URL */
-  .dsq-trackback-url { display: none; }
-  /* Bye bye ugly disquss logo */
-  .dsq-brlink { display: none; }
+@media all and (max-width: 480px) {
+  aside, aside#sidebar-small { width: 90%; margin: 0; }
 }
