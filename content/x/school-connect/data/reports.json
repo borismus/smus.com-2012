@@ -1,0 +1,480 @@
+
+{
+	"error": false,
+	"data": [
+	
+	{
+	"type": "grade",
+	"posted": "December 7, 2010 10:00:00",
+	"title": "The Sunflowers",
+	"description": " Find a picture of Sunflowers on the internet and draw it. Use pencil.",
+	"subject": "Art",
+	"grade": "A-",
+	"average": "B",
+	"authorId": "0",
+	"year":"1st",
+	"season": "fall"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 30, 2010 10:00:00",
+	"title": "Your Room",
+	"description": "Draw a picture of your room at home. Use pencil.",
+	"subject": "Art",
+	"grade": "A-",
+	"average": "B",
+	"authorId": "0",
+	"year":"1st",
+	"season": "fall"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 23, 2010 10:00:00",
+	"title": "Self Portrait",
+	"description": "Draw a picture of yourself from a photograph. Use pencil",
+	"subject": "Art",
+	"grade": "A-",
+	"average": "B",
+	"authorId": "0",
+	"year":"4th",
+	"season": "summer"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 16, 2010 10:00:00",
+	"title": "Pastels II",
+	"description": "Write 1 page about the difference between using pastels and pencil.",
+	"subject": "Art",
+	"grade": "A",
+	"average": "B",
+	"authorId": "0",
+	"year":"4th",
+	"season": "spring"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 9, 2010 10:00:00",
+	"title": "Pastels",
+	"description": "Go to the art store and buy some pastels, at least 3 colors.",
+	"subject": "Art",
+	"grade": "A",
+	"average": "B",
+	"authorId": "0",
+	"year":"2nd",
+	"season": "spring"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Dec 6, 2010 10:00:00",
+	"title": "Exercise 2.14",
+	"description": "From Everyday Mathematics, p 134 - 135.",
+	"subject": "Math",
+	"grade": "A+",
+	"average": "A-",
+	"authorId": "0",
+	"year":"4th",
+	"season": "summer"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 29, 2010 10:00:00",
+	"title": "Exercise 2.13",
+	"description": "From Everyday Mathematics, p 130 - 132.",
+	"subject": "Math",
+	"grade": "A+",
+	"average": "A-",
+	"authorId": "0",
+	"year":"1st",
+	"season": "spring"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 22, 2010 10:00:00",
+	"title": "Exercise 2.11",
+	"description": "From Everyday Mathematics, p 124 - 127.",
+	"subject": "Math",
+	"grade": "A",
+	"average": "A-",
+	"authorId": "0",
+	"year":"3rd",
+	"season": "summer"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 15, 2010 10:00:00",
+	"title": "Exercise 2.10",
+	"description": "From Everyday Mathematics, p 120 - 123.",
+	"subject": "Math",
+	"grade": "A",
+	"average": "A-",
+	"authorId": "0",
+	"year":"1st",
+	"season": "fall"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 8, 2010 10:00:00",
+	"title": "Tax",
+	"description": "Find an article in a newspaper about tax. Print it out and bring it to school.",
+	"subject": "Math",
+	"grade": "A+",
+	"average": "A-",
+	"authorId": "0",
+	"year":"4th",
+	"season": "summer"
+	},
+
+
+	{
+	"type": "grade",
+	"posted": "Dec 5, 2010 10:00:00",
+	"title": "Treasure Island, Ch 12",
+	"description": "Read Ch. 12 and get you parent or guardian to sign your reading book.",
+	"subject": "Reading",
+	"grade": "A",
+	"average": "A-",
+	"authorId": "0",
+	"year":"4th",
+	"season": "spring"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 28, 2010 10:00:00",
+	"title": "Treasure Island, Ch. 11",
+	"description": "Read Ch. 11 and get you parent or guardian to sign your reading book.",
+	"subject": "Reading",
+	"grade": "A",
+	"average": "A-",
+	"authorId": "0",
+	"year":"3rd",
+	"season": "fall"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 21, 2010 10:00:00",
+	"title": "Treasure Island, Ch. 10",
+	"description": "Read Ch. 10 and get you parent or guardian to sign your reading book.",
+	"subject": "Reading",
+	"grade": "A",
+	"average": "A-",
+	"authorId": "0",
+	"year":"3rd",
+	"season": "spring"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 14, 2010 10:00:00",
+	"title": "What is a pirate?",
+	"description": "Do some research on pirates. Do pirates always sail on ships?",
+	"subject": "Reading",
+	"grade": "B+",
+	"average": "A-",
+	"authorId": "0",
+	"year":"2nd",
+	"season": "summer"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 7, 2010 10:00:00",
+	"title": "Treasure Island, Ch. 9",
+	"description": "Read Ch. 9 and get you parent or guardian to sign your reading book.",
+	"subject": "Reading",
+	"grade": "A-",
+	"average": "A-",
+	"authorId": "0",
+	"year":"2nd",
+	"season": "fall"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Dec 8, 2010 10:00:00",
+	"title": "Atlantic Ocean",
+	"description": " Find five pictures of fish that swim in the Atlantic Ocean. Write about what kind of food the fish eats.",
+	"subject": "Science",
+	"grade": "A-",
+	"average": "A-",
+	"authorId": "0",
+	"year":"1st",
+	"season": "fall"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Dec 1, 2010 10:00:00",
+	"title": "Oxygen in the Ocean",
+	"description": "How can fish breath in the water but we can't? Write one paragraph about gills.",
+	"subject": "Science",
+	"grade": "A+",
+	"average": "A-",
+	"authorId": "0",
+	"year":"1st",
+	"season": "fall"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 24, 2010 10:00:00",
+	"title": "The Red Sea",
+	"description": "Coral, is it a plant or an animal? Do some research online, prepare a 5 minute talk.",
+	"subject": "Science",
+	"grade": "A",
+	"average": "A",
+	"authorId": "0",
+	"year":"2nd",
+	"season": "summer"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 17, 2010 10:00:00",
+	"title": "Salt Water",
+	"description": "Find out what percent of water on Earth is salt water and what percent is fresh water.",
+	"subject": "Science",
+	"grade": "B+",
+	"average": "A-",
+	"authorId": "0",
+	"year":"4th",
+	"season": "spring"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 10, 2010 10:00:00",
+	"title": "The Arctic Ocean",
+	"description": "Find five mammals that live in the arctic ocean. Which is your favorite and why?",
+	"subject": "Science",
+	"grade": "A",
+	"average": "A-",
+	"authorId": "0",
+	"year":"2nd",
+	"season": "fall"
+	},
+		
+	{
+	"type": "grade",
+	"posted": "Dec 4, 2010 10:00:00",
+	"title": "Civil Rights Speeches III",
+	"description": "Watch the speech, I have a dream by Martin Luther King.",
+	"subject": "Sociology",
+	"grade": "A",
+	"average": "A",
+	"authorId": "0",
+	"year":"1st",
+	"season": "spring"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 28, 2010 10:00:00",
+	"title": "Civil Rights Speeches II",
+	"description": "Watch the speech, Inaugural Address of John F. Kennedy",
+	"subject": "Sociology",
+	"grade": "A",
+	"average": "A",
+	"authorId": "0",
+	"year":"1st",
+	"season": "summer"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 21, 2010 10:00:00",
+	"title": "Civil Rights Speeches I",
+	"description": "Listen to the speech, Inaugural Address of Nelson Mandela",
+	"subject": "Sociology",
+	"grade": "A",
+	"average": "A",
+	"authorId": "0",
+	"year":"3rd",
+	"season": "spring"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 14, 2010 10:00:00",
+	"title": "What are rights?",
+	"description": "Make a list of ten human rights that are important to you.",
+	"subject": "Sociology",
+	"grade": "A",
+	"average": "A",
+	"authorId": "0",
+	"year":"3rd",
+	"season": "summer"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 7, 2010 10:00:00",
+	"title": "Childs Rights",
+	"description": "Do children have different rights to adults? Think of three things that are different and explain why.",
+	"subject": "Sociology",
+	"grade": "A",
+	"average": "B+",
+	"authorId": "0",
+	"year":"2nd",
+	"season": "fall"
+	},
+	
+	{
+	"type": "grade",
+	"posted": "Dec 3, 2010 10:00:00",
+	"title": "Weekend Report",
+	"description": "Write about what you did at the weekend, in the style of a news report.",
+	"subject": "Writing",
+	"grade": "A",
+	"average": "B",
+	"authorId": "0",
+	"year":"4th",
+	"season": "spring"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 27, 2010 10:00:00",
+	"title": "Someone in my family",
+	"description": "Write one page about someone in your family that you look up to.",
+	"subject": "Writing",
+	"grade": "A-",
+	"average": "B",
+	"authorId": "0",
+	"year":"3rd",
+	"season": "spring"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 20, 2010 10:00:00",
+	"title": "My favorite toy",
+	"description": "Write one page about your favorite toy. Why do you like it so much?",
+	"subject": "Writing",
+	"grade": "A+",
+	"average": "B",
+	"authorId": "0",
+	"year":"1st",
+	"season": "fall"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 14, 2010 10:00:00",
+	"title": "Story Swap II",
+	"description": "Swap your story with the person you sit next to. Write an ending to their story.",
+	"subject": "Writing",
+	"grade": "B+",
+	"average": "B",
+	"authorId": "0",
+	"year":"2nd",
+	"season": "fall"
+	},
+
+	{
+	"type": "grade",
+	"posted": "Nov 7, 2010 10:00:00",
+	"title": "Story Swap I",
+	"description": "Write the beginning of a story. Make it half a page long.",
+	"subject": "Writing",
+	"grade": "B-",
+	"average": "B",
+	"authorId": "0",
+	"year":"1st",
+	"season": "summer"
+	},
+
+	{
+	"type": "attendance",
+	"description": "Please call the school to authorize this absence",
+	"posted": "Dec 6, 2010 10:00:00",
+	"missed": "Dec 3, 2010 10:00:00"
+	},
+
+	{
+	"type": "attendance",
+	"description": "Please call the school to authorize this absence",
+	"posted": "Nov 10, 2010 10:00:00",
+	"missed": "Nov 9, 2010 10:00:00"
+	},
+
+	{
+	"type": "attendance",
+	"description": "Please call the school to authorize this absence",
+	"posted": "May 12, 2010 10:00:00",
+	"missed": "May 11, 2010 10:00:00"
+	},
+
+	{
+	"type": "attendance",
+	"description": "Please call the school to authorize this absence",
+	"posted": "Feb 14, 2010 10:00:00",
+	"missed": "Feb 13, 2010 10:00:00"
+	},
+
+	{
+	"type": "attendance",
+	"description": "Please call the school to authorize this absence",
+	"posted": "Jan 26, 2010 10:00:00",
+	"missed": "Jan 25, 2010 10:00:00"
+	},
+
+	{
+	"type": "behavior",
+	"posted": "Dec 7, 2010 10:00:00",
+	"title": "Great Behavior",
+	"description": "Paulo was the best student in class this week, his behavior was very good and he did very good in his assignments.",
+	"behavior_type": "True",
+	"authorId": "0"
+	},
+
+	{
+	"type": "behavior",
+	"posted": "Nov 21, 2010 10:00:00",
+	"title": "Got in a fight with Jim",
+	"description": "During lunch time Paulo and Jim got in a fight about the football match.",
+	"behavior_type": "False",
+	"authorId": "0"
+	},
+
+	{
+	"type": "behavior",
+	"posted": "Oct 12, 2010 10:00:00",
+	"title": "100% in spelling test.",
+	"description": "Paulo came top of the class. He got 20 out of 20 in this weeks spelling test.",
+	"behavior_type": "True",
+	"authorId": "0"
+	},
+
+	{
+	"type": "behavior",
+	"posted": "Sep 28, 2010 10:00:00",
+	"title": "Talking too much",
+	"description": "Paulo was talking a lot in drawing class today. He didn't finish his class assignment.",
+	"behavior_type": "False",
+	"authorId": "0"
+	},
+
+	{
+	"type": "behavior",
+	"posted": "Nov 10, 2010 10:00:00",
+	"title": "Helped the new student",
+	"description": "Paulo made friends with the new boy in class. He invited the new boy to play football together.",
+	"behavior_type": "True",
+	"authorId": "0"
+	}
+
+
+	]
+
+}

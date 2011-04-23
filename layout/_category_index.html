@@ -1,0 +1,25 @@
+{% extends "skeleton/_base.html" %}
+
+{% block content %}
+
+{% filter typogrify %}
+
+{% markdown %}
+<article class="listing">
+
+<ul>
+  <h1>Tags</h1>
+  {% for cat in categories %}
+  <li onclick="javascript:location.href='/tag/{{cat.name}}/'";>
+    <a href='/tag/{{cat.name}}/'>{{cat.name|capfirst}}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+</article>
+
+{% endmarkdown %}
+
+{% endfilter %}
+
+{% endblock %}

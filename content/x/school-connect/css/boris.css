@@ -1,0 +1,13 @@
+/* Custom enhancements to jQuery Mobile 
+ *
+ * We use the pt- prefix to avoid collisions with other CSS styles.
+ */
+
+/* Home screen */
+.pt-home-left {float: left;}
+.pt-home-right {float: right;}
+.pt-home-row {clear: both;}
+
+#pt-discuss-content * {white-space: normal;}
+
+/*#pt-discussion-new-post .ui-icon {background: url(../images/icon-discuss-white.png);}*/

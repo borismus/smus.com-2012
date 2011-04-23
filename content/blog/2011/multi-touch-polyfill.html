@@ -1,0 +1,81 @@
+{% extends "_post.html" %}
+{% hyde
+title: Multi-Touch Polyfills
+created: 2011-04-22 09:00:36
+snip: A guide for simulating spec-compatible touch events without a mobile device. Useful for developing multi-touch applications.
+categories:
+- web
+hidden: yes
+%}
+
+{% block article %}
+
+In mobile development, it's often easier to start prototyping on the desktop
+and then tackle the mobile-specific parts on the devices you intend to support.
+Multi-touch is one of those features that's difficult to test on the desktop, since
+most desktop browsers don't have touch event support. This could be attributed 
+to the absense of physical hardware that was capable of doing multi-touch. This is
+changing now, as most new Macs, for example, ship with multi-touch capable 
+input of some sort.
+
+Anyway, the situation can be readily rectified! Farjan Something released a
+multi-touch [JavaScript library][] that uses his [npTuioClient][] NPAPI plugin. 
+Unfortunately this library provides a non-standard API to multi-touch, which is
+not ideal for developers that want to run the same code on their mobile
+devices.
+
+## Shims and Polyfills
+
+As HTML5 pushes the boundaries of the web further and blurs distinctions with 
+native apps, browser vendors struggle to keep up with the wide variety of feature
+specifications. In some cases, such as canvas, a feature exists in one browser,
+but not in another. In other cases, such as EXAMPLE a feature exists mostly in
+the imagination of the spec authors.
+
+This is clearly a huge problem for cross browser web development, and the community
+has rallied around Shims and Polyfills for the solution. These are bizarre
+terms terms, so let's define them right away:
+
+* **Shim** – a library that provides functionality not built into the browser.
+* **Polyfill** – a shim that also provides the same interface as an established
+specification.
+
+In these terms, Farjan's library is a shim that provides multi-touch. I wanted a
+polyfill, since we now have a well established [touch events specification][]
+working group at the W3C.
+
+So I wrote one. It's called [MagicTouch.js][] and still uses npTuioClient but
+creates custom DOM events that simulate the touch specifications. 
+
+## Installation
+
+Here are the steps for getting multi-touch web events working in Chrome for Mac:
+
+1. Download and install the npTuioClient NPAPI plugin into~/Library/Internet
+Plug-Ins/.
+2. Download the TongSeng TUIO app for Mac’s MagicPad and start the server
+3. Download MagicTouch.js and include both the script and the plugin in your app:
+
+    <head>
+      ...
+      <script src="/path/to/magictouch.js"></script>
+    </head>
+    <body>
+      ...
+      <object id="tuio" type="application/x-tuio" style="width:0; height:0;">
+        TUIO Plugin failed to load
+      </object>
+    </body>
+
+...and you're off to the races! Your multi-touch code will now work. Try out
+this [finger tracking demo][] on either your multi-touch mobile device or your
+newly multi-touch computer.
+
+## Future Steps
+
+As you saw, MagicTouch.js currently relies on an NPAPI plugin, which is
+non-ideal since it requires installation and an extra object embedded into the
+HTML. A better solution to this is to use the [WebSocket API][] that connects
+to a WebSocket server generating touch events on the machine.
+
+{% endblock %}

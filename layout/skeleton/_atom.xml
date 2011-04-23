@@ -12,6 +12,7 @@
   <id>{{site.full_url}}</id>
   {% recent_posts posts 100 page.blog_node %}
   {% for post in posts %}
+  {% if not post.hidden %}
   <entry>
     <title>{{post.title}}</title>
     <author><name>{{site.author}}</name></author>
@@ -24,6 +25,7 @@
       {%filter force_escape%}{% render_article post %}{%endfilter%}
     </content>
   </entry>
+  {% endif %}
   {% endfor %}
 </feed>
 {%endspaceless%}

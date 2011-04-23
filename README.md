@@ -1,12 +1,11 @@
 New design and engine for the move from borismus.com to smus.com
 
-Statically generated site. 
+Statically generated site.
 
 Permalink structure
-- old posts: borismus.com/post-name [redirect to] smus.com/20XX/post-name
-  - implement with django app engine?
+- old posts: borismus.com/post-name [redirect to] smus.com/post-name
 - blog
-  - new blog posts: smus.com/year/post-name
+  - new blog posts: smus.com/post-name
   - tags: smus.com/tag/tag-name
   - RSS feed: smus.com/feed
 - projects: smus.com/projects/

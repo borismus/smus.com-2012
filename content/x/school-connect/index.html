@@ -1,0 +1,90 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>School Connect</title> 
+  <link rel="stylesheet" href="external/jquery.mobile-1.0a2.min.css" />
+  <link rel="stylesheet" href="plugins/jquery.mobile.listview.accordion.css" />
+  <link rel="stylesheet" href="css/nick.css" />
+  <link rel="stylesheet" href="css/rebeca.css" />
+  <link rel="stylesheet" href="css/marco.css" />
+  <link rel="stylesheet" href="css/boris.css" />
+  
+  <!-- Importing Droid Font for the CSS -Nick -->
+  
+  <!-- Plain Text and Bold -->	    
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans&subset=latin' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:bold&subset=latin' rel='stylesheet' type='text/css'>
+
+  <script src="external/jquery.min.js"></script>
+  <script src="external/jquery.mobile-1.0a2.min.js"></script>
+  <script src="external/ghosttext.js"></script>
+  <script src="external/jquery.autocomplete.min.js"></script>
+  <script src="plugins/jquery.mobile.listview.accordion.js"></script>
+  <script src="plugins/jquery.mobile.listview.category.js"></script>
+  <script src="plugins/scriptcache.js"></script>
+  <script src="plugins/storagemanager.js"></script>
+  
+  <!-- PhoneGap plugins -->
+  <script src="external/phonegap.js"></script>
+  <script src="plugins/webintent.js"></script>
+</head> 
+<body> 
+
+  <div data-role="page">
+
+    <div data-role="header"> <!-- data-role="page" doesn't accept any css class -->
+     <div class="pt-header"> <!-- another div insider the header just to customize the header -->
+      <h1>School Connect</h1>
+      <div class="pt-header-kid">
+        <img src="images/author/paulo2.png" class="pt-header-image"/>
+        <div class="pt-header-name">Paulo</div>
+      </div><!-- /pt-header-kid -->
+     </div><!-- /pt-header -->
+    </div><!-- /header -->
+
+    <div data-role="content" class="pt-home-content" id="pt-home">
+
+      <div id="pt-home-fieldset">
+        <fieldset class="ui-grid-a">
+          <div class="ui-block-a">
+            <div class="pt-img-badge">
+              <p class="pt-badge pt-badge-reports">40</p>
+              <a href="reports.html" id="pt-icon-rep"></a>
+            </div>
+            <h3>Child Reports</h3>
+          </div>
+          <div class="ui-block-b">
+            <div class="pt-img-badge">
+              <p class="pt-badge pt-badge-events">10</p>
+              <a href="events.html" id="pt-icon-evt"></a>
+            </div>
+            <h3>School Events</h3>
+          </div>	   
+        </fieldset>
+        <fieldset class="ui-grid-a">
+          <div class="ui-block-a">
+            <div class="pt-img-badge">
+              <p class="pt-badge pt-badge-recommendations">28</p>
+              <a href="recommendations.html" id="pt-icon-rec"></a>
+            </div>
+            <h3>Recommendations</h3>
+          </div>
+          <div class="ui-block-b">
+            <div class="pt-img-badge">
+              <p class="pt-badge pt-badge-discussions">11</p>
+              <a href="discussions.html" id="pt-icon-dis"></a>
+            </div>
+            <h3>Discussions</h3>
+          </div>	   
+        </fieldset>
+      </div><!-- /div id="pt-home-fieldset" -->
+    </div><!-- /content -->
+
+    <div data-role="footer" style="height: 60px;">
+      <h4><a href="settings.html">Settings</a></h4>
+    </div><!-- /page -->
+  </div>
+
+<script src="global.js"></script>
+</body>
+</html>

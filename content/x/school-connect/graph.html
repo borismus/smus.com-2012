@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recent Updates</title>
+  
+</head>
+<body>
+
+  <div data-role="page">
+
+    <div data-role="header">
+      <h1>Paulo's Grade History</h1>
+    </div><!-- /header -->
+
+    <div data-role="content">
+    
+    	<lh data-role="category-filter">
+          <select id="pt-graph-subjectpicker">
+            <option value="All Subjects"  >All Subjects</option>
+            <option value="Art">Art</option>
+            <option value="Math">Math</option>
+            <option value="Reading">Reading</option>
+            <option value="Science">Science</option>
+            <option value="Sociology">Sociology</option>
+            <option value="Writing">Writing</option>
+          </select>
+        </lh>
+		
+		<div>
+    	<img id="pti-graph-img" class="pti-graph-img" src="images/temp.png" alt="Paulo Grades"/>
+    	</div>
+    	
+    </div><!-- /content -->
+
+    <div data-role="footer">
+     <div data-role="navbar" id="pt-graph-yearpicker" class="pt-navbar">
+		<ul>
+			<li><a href="#" >1st</a></li>
+			<li><a href="#">2nd</a></li>
+            <li><a href="#">3rd</a></li>
+            <li><a href="#">4th</a></li>
+            <li><a href="#"class="ui-btn-active">All</a></li>
+		</ul>
+	</div><!-- /navbar -->
+  </div><!-- /page -->
+
+</body>
+</html>
+

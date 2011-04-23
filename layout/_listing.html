@@ -6,10 +6,25 @@
 
 {% markdown %}
 <article class="listing">
-<h1>{{ page.title }}</h1>
 
 {% block article %}
 {% endblock %}
+
+{% recent_posts posts 100 page.blog_node %}
+<ul>
+	{% for post in posts %}
+  {% if not post.hidden %}
+  <li onclick="javascript:location.href='/{{post.page_name}}'";>
+    <span class="list-date">{{post.created.date}}</span> 
+    <a href='/{{post.page_name}}'>{{post.title}}</a>
+    {% if post.snip %}
+    <span class="list-snip">{{post.snip}}</span>
+    {% endif %}
+  </li>
+  {% endif %}
+  {% endfor %}
+</ul>
+
 </article>
 
 {% endmarkdown %}

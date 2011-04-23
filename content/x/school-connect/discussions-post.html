@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recent Updates</title>
+</head>
+<body>
+
+  <div data-role="page">
+
+    <div data-role="header">
+      <h1>Post Discussion</h1>
+    </div><!-- /header -->
+
+    <div data-role="content">
+        
+      <form action="#" method="get" class="pt-post-form">
+        <div data-role="fieldcontain">
+          <div class="test"><input type="text" data-theme="d" class="pt-post-title" placeholder="Enter discussion title" /></div>
+          <textarea data-theme="d" class="pt-post-textfield" placeholder="Enter discussion body"></textarea>
+        </div>
+
+        <div data-role="fieldcontain" id="invitewrapper">
+          <input type="checkbox" name="checkbox" class="pt-post-checkbox" class="custom" id="checkbox"/>
+          <label for="checkbox">Private Discussion <div class="pt-checkbox-label-description"> Who can see and comment this discussion? </div></label>
+          <input type="text" class="pt-post-autocomplete" id="pt-post-autocomplete" placeholder="Enter participants names" />
+          <div class="pt-invitees">
+          </div>
+        </div>
+
+        <fieldset class="ui-grid-a">
+          <button type="submit" data-theme="c">Post</button>
+        </fieldset>
+      </form>
+    </div><!-- /content -->
+
+  </div><!-- /page -->
+
+</body>
+</html>

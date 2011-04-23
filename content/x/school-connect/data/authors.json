@@ -1,0 +1,40 @@
+{
+  "error": false,
+  "data": [
+  {
+    "id": 0,
+    "name": "Ms. Elisa Santos",
+    "image": "images/author/santos.png"
+  },
+  {
+    "id": 1,
+    "name": "Tassio Marques",
+    "image": "images/author/marques.png"
+  },
+  {
+    "id": 2,
+    "name": "Mario Abreu",
+    "image": "images/author/abreu.png"
+  },
+  {
+    "id": 3,
+    "name": "Kelly Bennett",
+    "image": "images/author/bennett.png"
+  },
+  {
+    "id": 4,
+    "name": "Bernard Holtz",
+    "image": "images/author/holtz.png"
+  },
+  {
+    "id": 5,
+    "name": "Brett Campbell",
+    "image": "images/author/campbell.png"
+  },
+  {
+    "id": 6,
+    "name": "Gabriela",
+    "image": "images/author/gabriela.png"
+  }
+  ]
+}

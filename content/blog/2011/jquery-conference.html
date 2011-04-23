@@ -1,0 +1,38 @@
+{% extends "_post.html" %}
+{% hyde
+title: jQuery Conference 2011
+created: 2011-04-22 09:00:36
+snip: something something.
+categories:
+- web
+- conference
+hidden: yes
+%}
+
+{% block article %}
+
+A few weekends ago I went to the jQuery Conference held at the MS campus in
+Mountain View. And I took notes! 
+
+## State of jQuery
+
+Resig talked about a bunch of changes to the project structure, largely
+irrelevant to jQuery library consumers.
+
+Many jQuery 1.6 improvements:
+
+* Rewrite of attr() and val(). For example, attr('val', false) removes the attribute
+* Separate prop() from attr(). Indeed!
+* $('input:focus') gets focused input box across platforms
+* Significant performance boosts:
+  * attr() performance ~85% faster, val() ~150% faster, data() ~115% faster
+* Integration with requestAnimationFrame for animations
+* $.map(Object, function) now works (as it does for Arrays)
+
+Pro tip: jQuery automatically parses serialized JSON if it's included as the value 
+of a HTML5 data attribute. Example: `<header data-array="[0,1,2]">` then 
+`$('header').data('array')[1] == 1`
+
+## 
+
+{% endblock %}

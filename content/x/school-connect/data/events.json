@@ -1,0 +1,75 @@
+{
+    "error": false,
+    "data": [
+        {        
+            "when": "December 13, 2010 10:30:00",
+            "where": "School",
+            "title": "Science test at school",
+            "description": "Topics for this test should be around food chains and ecosystems",
+            "discussionId": 1
+        },
+        {
+            "when": "December 13, 2010 08:30:00",
+            "where": "Parque das Nacoes",
+            "title": "School trip to Oceanarium",
+            "description": "Our class will visit Lisbon Oceanarium to have some contact with aquatic species like sharks and rays.",
+            "discussionId": "-1" 
+        },
+        {
+            "when": "December 17, 2010 12:00:00",
+            "where": "School Sports Field",
+            "title": "Sports day event at school",
+            "description": "School invites you to join our sports day event at School. There will be team mini tournaments of football and volleyball. Join us!",
+            "discussionId": 8 
+        },
+        {
+            "when": "December 18, 2010 14:00:00",
+            "where": "School Gym",
+            "title": "Last day of school party",
+            "description": "The school will gather all parents and present theatrical pieces, instrumental songs and other surprises in the gym space.",
+            "discussionId": 6 
+        },
+        {
+            "when": "December 18, 2010 06:00:00",
+            "where": "School",
+            "title": "Midterm grades are out",
+             "description": "Midterm grades will be published through school connect.",
+            "discussionId": "-1" 
+        }, 
+        {
+            "when": "January 6, 2010 09:00:00",
+            "where": "School",
+            "title": "Portuguese assignment due",
+            "description": "Describe the word Elaborar and find 5 Synonyms and Antonyms for that word.",
+            "discussionId": "-1" 
+        },
+        {
+            "when": "January 6, 2010 16:00:00",
+            "where": "School",
+            "title": "Music class at school",
+            "description": "This semester we will be learning the flute. Don't forget to bring the instrument to class.",
+            "discussionId": "-1" 
+        },
+        {
+            "when": "January 23, 2010 09:00:00",
+            "where": "School",
+            "title": "Food Chains Final Project due",
+            "description": "Describe herbivores, carnivores and omnivores animals and give examples of those.",
+            "discussionId": "-1" 
+        },
+        {
+            "when": "January 25, 2010 14:30:00",
+            "where": "School",
+            "title": "Science test",
+            "description": "The test will cover all the topics given until now: animals and type of animals",
+            "discussionId": "-1" 
+        },
+        {
+            "when": "January 27, 2010 15:30:00",
+            "where": "Alges School",
+            "title": "Football game aganst Alges.",
+             "description": " School will schedule a bus to play football against Alges. Please add to the discussion if you want to go",
+            "discussionId": "-1" 
+        }
+    ]
+}

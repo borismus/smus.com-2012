@@ -2,19 +2,9 @@
 
 {%hyde
   created: 2011-03-09 13:52:00
-  title: Recent Posts
+  title: Recent Articles
 %}
 
 {% block article %}
-{% recent_posts posts 100 page.blog_node %}
-
-<ul>
-	{% for post in posts %}
-  <li onclick="javascript:location.href='/{{post.page_name}}'";>
-    <span class="list-date">{{post.created.date}}</span> 
-    <a href='/{{post.page_name}}'>{{post.title}}</a>
-  </li>
-  {% endfor %}
-</ul>
-
+<h1>Recent Articles</h1>
 {% endblock %}

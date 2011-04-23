@@ -1,0 +1,39 @@
+{% extends "skeleton/_base.html" %}
+
+{% block title %}
+{{category|capfirst}} | {{site.name}}
+{% endblock %}
+
+{% block content %}
+
+{% filter typogrify %}
+
+{% markdown %}
+<article class="listing">
+
+<h1>Recent Articles about {{category|capfirst}}</h1>
+{% block article %}
+{% endblock %}
+
+<ul>
+  {% for post in posts %}
+  {% if not post.hidden %}
+  <li onclick="javascript:location.href='/{{post.page_name}}'";>
+    <span class="list-date">{{post.created.date}}</span> 
+    <a href='/{{post.page_name}}'>{{post.title}}</a>
+    {% if post.snip %}
+    <span class="list-snip">{{post.snip}}</span>
+    {% endif %}
+  </li>
+  {% endif %}
+  {% endfor %}
+</ul>
+
+</article>
+
+{% endmarkdown %}
+
+{% endfilter %}
+
+{% endblock %}
+

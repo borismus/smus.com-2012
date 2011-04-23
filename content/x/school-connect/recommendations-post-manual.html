@@ -1,0 +1,58 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Page Title</title> 
+</head> 
+
+<body> 
+
+<div data-role="page">
+
+	<div data-role="header" id="pt-header">
+      <h1>Post Recommendation</h1>
+    </div><!-- /header -->
+	
+		    
+	<div class="pt-home-header-outside">
+    <div class="ui-li-has-thumb ui-btn ui-btn-icon-right ui-li ui-btn-hover-c" data-theme="c">
+		<img style="padding-left:22px; padding-top:10px; padding-bottom:10px;" id="pti-home-userimg" src="images/ic-recom-custom.png" />
+		<div class="pt-report-title-2">Custom Recommendation</div>
+    </div><!-- /2ndheader -->
+    </div><!-- /header-outside -->
+    
+    <div data-role="content">
+
+      <div data-role="fieldcontain" class="pt-post-selector">	
+
+        <select id="pt-recpost-manual-categoryselect" class="pt-recpost-manual-categoryselect">
+          <option value="Miscellaneous">Miscellaneous</option>
+          <option value="Movie">Movie</option>
+          <option value="Place">Place</option>
+          <option value="Book">Book</option>
+          <option value="Site">Kids Site</option>
+        </select>
+      </div>
+
+      <form action="#" method="get" class="pt-post-form">
+        <div data-role="fieldcontain">
+          <div><input type="text" data-theme="d" class="pt-post-title" placeholder="Enter recommendation title" />
+          </div>
+          <div> <textarea data-theme="d" class="pt-post-textfield" placeholder="Enter recommendation body"></textarea></div>
+        </div>
+
+        <div data-role="fieldcontain" id="invitewrapper">
+          <input type="checkbox" name="checkbox" class="pt-post-checkbox" class="custom" id="checkbox"/>
+          <label for="checkbox">Private Recommendation <div class="pt-checkbox-label-description"> Who can see this recommendation? </div></label>
+          <input type="text" class="pt-post-autocomplete" id="pt-post-autocomplete" placeholder="Enter participants names" />
+        </div>
+
+        <fieldset class="ui-grid-a">
+          <button type="submit" data-theme="c">Post</button>
+        </fieldset>
+      </form>
+
+    </div> <!--//content -->
+</div>
+
+
+</body>

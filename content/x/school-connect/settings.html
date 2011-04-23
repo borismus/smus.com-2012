@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Settings</title>
+</head>
+<body>
+
+  <div data-role="page">
+
+    <div data-role="header">
+      <h1>Settings</h1>
+    </div><!-- /header -->
+
+    <div data-role="content" class="pt-home-content">
+      <div id="pti-home-2ndheader" class="pti-home-2ndheader">
+        <img id="pti-home-userimg" src="images/author/gabriela.png" />
+        <div class="pt-home-welcometxt">
+          <h3>Welcome, Gabriela</h3> <br/>
+
+        </div><!-- /welcome-txt -->
+      </div><!-- /2ndheader -->
+      <div data-role="fieldcontain">
+      </div>
+      <div data-role="fieldcontain"> 
+        <label for="pt-auto-refresh">Automatically refresh</label> 
+        <select name="pt-auto-refresh" id="pt-auto-refresh" data-role="slider"> 
+          <option value="off">Off</option> 
+          <option value="on">On</option> 
+        </select> 
+      </div>
+      <div data-role="fieldcontain"> 
+        <label for="pt-post-global">Post to class by default</label> 
+        <select name="pt-post-global" id="pt-post-global" data-role="slider"> 
+          <option value="off">Off</option> 
+          <option value="on">On</option> 
+        </select> 
+      </div>
+      <div data-role="fieldcontain"> 
+        <fieldset data-role="controlgroup"> 
+          <legend>Default grade format</legend> 
+          <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" /> 
+          <label for="radio-choice-1">Percentages</label> 
+
+          <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  /> 
+          <label for="radio-choice-2">Letter grades</label> 
+        </fieldset> 
+      </div>
+      <div data-role="fieldcontain">
+        <a href="#" data-role="button" data-theme="d">Edit profile</a>
+      </div>
+    </div><!-- /content -->
+
+  </div><!-- /page -->
+
+</body>
+</html>

@@ -50,30 +50,21 @@ APPEND_SLASH = True
 
 # Extensions do not support wildcards.
 
-CATEGORIES = {
-  'design': {
-    'description': 'designy stuff'
-  },
-  'music': {
-    'description': 'm stuff'
-  },
-  'physical': {
-    'description': 'phys stuff'
-  },
-  'social': {
-    'description': 'social stuff'
-  },
-  'web': {
-    'description': 'web stuff'
-  }
-}
-
 SITE_PRE_PROCESSORS = {
     '/': {
       'hydeengine.site_pre_processors.NodeInjector' : {
         'variable' : 'blog_node',
         'path' : 'content/blog'
         }
+      },
+    'blog': {
+      'hydeengine.site_pre_processors.CategoriesManager' : {
+        'node': 'blog',
+        'output_folder': 'tag',
+        'archiving': True,
+        'template': '_category.html',
+        'listing_template': '_category_index.html'
+        },
       }
     }
 

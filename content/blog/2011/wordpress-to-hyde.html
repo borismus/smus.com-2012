@@ -2,6 +2,7 @@
 {% hyde
 title: From Wordpress to Hyde
 created: 2011-04-20 09:00:36
+snip: or, how I stopped worrying and switched this blog to a Django static site generator.
 categories:
 - web
 %}
@@ -20,8 +21,7 @@ use, I've collected a list of things I don't much like about it:
 * Constant security upgrades required.
 
 All of these things separately are perhaps small and insignificant, but
-together add up to create a certain barrier to blogging. Time to streamline!
-
+together add up to create a certain barrier to blogging.
 ## Static files
 
 A blog is mostly static. Why should my article be stored in a database? It's hardly 
@@ -30,7 +30,7 @@ like [Disqus][] implement commenting with embeddable JavaScript. And in general,
 dynamic parts can be handled in client-side code.
 
 So I looked to static site generators. There's about [a million][] of these,
-the most prominent of which is [Jekyll][], written by the github cofounder. 
+the most prominent of which is [Jekyll][], written by the github co-founder. 
 Ultimately I chose [Hyde][] for it's use of [Django templates][] and Python.
 
 ## Migrating the old blog
@@ -79,17 +79,16 @@ that stuck were:
 * Writing personal posts is OK sometimes
 * Show personal information in the sidebar
 
-The last part is expressed in the new design.  Overall the redesign was an
+The last part is expressed in the new design. Overall the redesign was an
 exercise in typography, CSS3 features and [responsive layout][]. 
 
 [Google fonts][] is a nice collection of web fonts. I decided to switch from
 Myriad (used on borismus.com) to a serif for the main body for a
-change. I ultimately went with [PT Sans][], which seemed like a nice
+change. I ultimately went with [PT Serif][], which seemed like a nice
 improvement to Georgia, which is probably my favorite serif web font.
 
 I used a bunch (too many?) CSS3 features on the new site. Most of these are
-CSS box-shadows, gradients, transformations and transitions. I had a lot of fun
-playing with these.
+CSS box-shadows, gradients, transformations and transitions. I used [SCSS][].
 
 Also, following the responsive layout philosophy, I wanted the site to scale well
 to a number of different resolutions. For example, the sidebar moves to the end of the 
@@ -114,7 +113,7 @@ Over the same time period, the average response time of my wordpress instance wa
 
 ![old perf][]
 
-Over the same timeframe, my static blog, hosted on the same machine, responded on 
+Over the same time frame, my static blog, hosted on the same machine, responded on 
 average in **371ms**:
 
 ![new perf][]
@@ -125,9 +124,9 @@ Oh, finally, the site is fully open source [on github][].
 
 Thanks to a bunch of people:
 
-- Sol, Kat and Jon for giving design feedback
+- Sol, Kat and Jon for giving useful design feedback!
 - [Noah Levin][] for awesome CSS3 tweaks
-- Steve Losh for his [Hyde migration][] writeup
+- Steve Losh for his [Hyde migration][] write-up
 
 You, for reading this post and continuing to read this blog. Until next time!
 
@@ -151,9 +150,10 @@ You, for reading this post and continuing to read this blog. Until next time!
 [borismus.com]: http://borismus.com
 [highlight.js]: http://softwaremaniacs.org/soft/highlight/en/
 [timeago]: http://timeago.yarp.com/
-[PT Sans]: http://www.google.com/webfonts/list?family=PT+Sans
+[PT Serif]: http://www.google.com/webfonts/list?family=PT+Serif
 [enhanced page load time]: /lightweight-wordpress-on-slicehost/
 [on github]: http://github.com/borismus/smus.com
+[SCSS]: http://sass-lang.com/
 
 [old]: /media/images/blog/2009/new_design.png
 [new]: /media/images/blog/2011/new-design.png

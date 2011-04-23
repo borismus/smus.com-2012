@@ -1,0 +1,326 @@
+/* recommendations-post-manual page
+----------------------------------*/
+
+.pt-recpost-manual-categorypicker{
+background-color: gray;
+
+}
+
+
+/* autocomplete skin
+----------------------------------*/
+
+.ac_results {
+	/*background-color:#CCC;*/
+	background-image:-moz-linear-gradient(center top , #FFFFFF, #FAEB9E) repeat scroll 0 0 #FAEB9E;
+	background-image:-webkit-gradient(linear,center top,center bottom,color-stop(0,#FFF),color-stop(1,#FAEB9E));
+	overflow: hidden;
+	-moz-border-radius: .6em; -webkit-border-radius: .6em; border-radius: .6em; 
+	-moz-box-shadow:   1px 1px 10px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow:  1px 1px 10px rgba(0, 0, 0, 0.3); /* yellow #F7C942 */
+	border: 1px solid #F7C942;
+	color:#333;
+	text-shadow:0 1px 0 #FFFFFF;
+}
+
+.ac_results ul {
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	-moz-border-radius: .6em; -webkit-border-radius: .6em; border-radius: .6em;
+}
+
+.ac_results li { /* each item in the dropdown of suggestions */
+	font-family:'Droid Sans',Helvetica,Arial,sans-serif;
+	margin: 0px;
+	padding: 10px 5px;
+	cursor: default;
+	display: block;
+	/* 
+	if width will be 100% horizontal scrollbar will apear 
+	when scroll mode will be used
+	*/
+	font-size: 16px;
+	color:#333;
+	/* 
+	it is very important, if line-height not setted or setted 
+	in relative units scroll will be broken in firefox
+	*/
+	line-height: 35px;
+	overflow: hidden;
+}
+
+.ac_loading {
+	background: white url('indicator.gif') right center no-repeat;
+}
+
+/* style odd elements that show in the autocompletelist */
+.ac_odd {  
+	height:35px;
+}
+
+.ac_over { 
+	height:35px;
+	/*background-color: #F7C942;*/
+	background-image:-moz-linear-gradient(center top , #FCEDA7, #FADB4E) repeat scroll 0 0 #F7C942;
+	background-image:-webkit-gradient(linear,center top,center bottom,color-stop(0,#FCEDA7),color-stop(1,#F7C942));
+	font-family:'Droid Sans',Helvetica,Arial,sans-serif;
+}
+
+
+/* autocomplete added elements
+----------------------------------*/
+.pt-post-added-blocks{
+	margin-top: 10px;
+	height:65px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background-image:-moz-linear-gradient(top,#939598,#6D6E71);
+	background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#939598),color-stop(1,#6D6E71));
+	color:#FFF;
+	text-shadow:0 1px 0 #000;
+	border:solid 1px #999;
+}
+
+.pt-ac-formatted {
+	margin:22px 15px 20px 20px;
+	padding-left:45px;
+}
+
+.pt-checkbox-label-description {
+	font-size:12px;
+	font-weight:normal;
+}
+
+.pt-post-checkbox {
+	background-color:#F0F;
+}
+
+.pt-post-closeicon {
+	float:right;
+	width: 18px;
+	height:18px;
+	background-image:url(../external/images/icons-36-white.png);
+	background-size:558px 18px;
+	background-position:-72px 0;
+	-moz-border-radius: .7em; -webkit-border-radius: .7em; border-radius: .7em; 
+	-moz-box-shadow: 0px 2px 4px #666;
+	-webkit-box-shadow: 0px 2px 4px #666;
+	background-color:#333;
+}
+
+
+/* post pages (discussion and recommendations, since they use the same components)
+----------------------------------*/
+.pt-post-selector {
+	margin:-15px -15px 0px -15px;
+	padding: 10px;
+	background-image:-moz-linear-gradient(top,#939598,#6D6E71);
+	background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#939598),color-stop(1,#6D6E71));
+}
+
+.pt-post-title, .pt-post-textfield {
+	margin:5px 0px 5px 0px;
+}
+
+
+/* DISCUSSION - list view
+----------------------------------*/
+.pt-discuss-2ndheader{
+	
+}
+
+.pt-discussion-new-post{
+	background-image:url(../images/icon-discuss-dark.png);
+	background-color:#FCC;
+	width: 60px;
+	height: 60px;
+}
+
+
+/* graph img
+----------------------------------*/
+.pti-graph-img{
+	margin-left:18px;
+	
+}
+
+.pt-navbar a:hover{
+//code here
+}
+
+
+
+/* home header
+----------------------------------*/
+.pt-header {
+	height: 45px;
+	padding:5px 10px 5px 15px;
+}
+.pt-header h1 {
+	font-size:18px;
+	float:left;
+}
+
+.pt-header-name {
+	float:right;
+	margin-top:20px;
+	margin-right:10px;
+	font-weight:lighter;
+	font-size:15px;
+}
+
+.pt-header-image {
+	text-align:right;
+	float:right;
+	/*position:absolute;
+	right:5px;
+	margin-right:25px;*/
+	width:45px;
+	height:45px;
+}
+
+
+/* home second header
+----------------------------------*/
+.pt-home-header-outside{
+	border-top: 1px solid #000;
+}
+
+.pti-home-2ndheader{
+	margin:auto;
+	padding:10px;
+	height: 80px;
+	width: 100%;
+	background-image:-moz-linear-gradient(top,#111,#3c3c3c);
+	background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#111),color-stop(1,#3c3c3c));
+	font-weight:bold;
+	color:#FFF;
+	text-shadow:0 -1px 1px #000;
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #000;
+}
+
+.pti-home-2ndheader img{
+width: 70px;
+height: 70px;
+padding:5px;
+float: left;
+}
+
+.pt-home-welcometxt {
+	margin:15px 10px 5px 93px;
+	color: white;
+}
+
+.pti-home-2ndheader-usernametxt{
+	font-size: 14 px;
+	font-weight: bold;
+	color: black;
+}
+
+.pti-home-2ndheader-locationtxt{
+font-size: 12px;
+font-weight:normal;
+}
+
+.pti-home-2ndheader-eventtxt{
+font-size: 12px;
+font-weight:normal;
+color:#CCC;
+
+}
+
+/* home content components
+----------------------------------*/
+
+.pt-badge{
+font-size: 10px;
+text-align:center;
+width: 30px;
+position:relative;
+top:20px;
+right:-80px;
+padding: 6px 0px 6px 0px;
+background-color:#CCC;
+-moz-border-radius: 15px;
+-webkit-border-radius: 15px;
+border-radius: 15px;
+-moz-box-shadow: 1px 1px 2px #000;
+-webkit-box-shadow: 1px 1px 2px #000;
+box-shadow: 1px 1px 2px #000;
+}
+
+.pt-img-badge {
+	position:relative;
+	margin:auto;
+	width:120px;
+}
+
+.pt-home-content {
+	padding:0px;
+	background-image:-moz-linear-gradient(top,#fff,#CCC);
+	background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#fff),color-stop(1.5,#CCC));
+	
+}
+
+.pt-home-content a:link {
+	text-decoration:none;
+	color:#333;
+}
+
+#pt-home-fieldset {
+	text-align:center;
+	margin-top:10px;
+	vertical-align:middle;
+	background-image:url(../images/home-cross-divisor.png);
+	background-repeat:no-repeat;
+	background-position:center;
+}
+
+a#pt-icon-rep {
+	display:block;
+	width:98px;
+	height:98px;
+	background:url(../images/home-rep_.png) no-repeat bottom;
+}
+
+
+a#pt-icon-rep:hover, #pt-icon-rep a:active {
+	background:url(../images/home-rep_.png) no-repeat top;
+}
+
+a#pt-icon-evt {
+	display:block;
+	width:98px;
+	height:98px;
+	background:url(../images/home-ev_.png) no-repeat bottom;
+}
+
+a#pt-icon-evt:hover, #pt-icon-evt a:active {
+	background:url(../images/home-ev_.png) no-repeat top;
+}
+
+a#pt-icon-rec, #pt-icon-rec:visited {
+	display:block;
+	width:98px;
+	height:98px;
+	background:url(../images/home-rec_.png) no-repeat bottom;
+}
+
+a#pt-icon-rec:hover, #pt-icon-rec a:active {
+	background:url(../images/home-rec_.png) no-repeat top;
+}
+
+a#pt-icon-dis {
+	display:block;
+	width:98px;
+	height:98px;
+	background:url(../images/home-disc_.png) no-repeat bottom;
+}
+
+a#pt-icon-dis:hover, #pt-icon-dis:active {
+	background:url(../images/home-disc_.png) no-repeat top;
+}
