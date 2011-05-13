@@ -245,7 +245,8 @@ aside#sidebar nav.fix {
   position: fixed;
   top: 5px;
   right: 0;
-  width: $sidebarWidth + 1;
+  width: $sidebarWidth;
+  margin-right: 1px;
   padding: 25px;
   background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0.5, #eee), color-stop(1, white));
   background-image: -moz-linear-gradient( top, #eee, #eee, white);

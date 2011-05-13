@@ -1,4 +1,6 @@
 $(function() {
+  console.log('nav height', $('nav').height());
+  console.log('aside height', $('#sidebar').height());
 
   // Enable navbar funkiness
   $('nav .icons img').mouseover(function() {
@@ -10,7 +12,7 @@ $(function() {
   });
 
   // Make the navbar persist if we scroll far enough
-  offsetTop = 325;
+  offsetTop = 315;
   $(window).scroll(function() {
     if ($(this).scrollTop() > offsetTop) {
       $('nav').addClass('fix');
