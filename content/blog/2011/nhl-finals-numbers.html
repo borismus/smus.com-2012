@@ -1,8 +1,8 @@
 {% extends "_post.html" %}
 {% hyde
 title: Crunching Numbers for the NHL Finals
-snip: Doing some math to decide when to visit Vancouver
-created: 2011-05-30 09:00:36
+snip: Doing some math to decide when to visit Vancouver in order to make the best of the Canucks final
+created: 2011-05-31 09:00:36
 categories:
 - math
 - travel
@@ -12,11 +12,11 @@ categories:
 
 Now that the Vancouver Canucks are in the NHL Finals, a special visit to
 Vancouver is in order. Unfortunately, the recently posted schedule really
-sucks. There's just one weekend game, and the rest are spaced in such a way
+sucks. There’s just one weekend game, and the rest are spaced in such a way
 that I can only hope to see Game 5 (if it happens) and either Game 4 or Game 6
 (if it happens) if I manage to work from home half of the week. The question
-is: which game to choose? I want to be in Vancouver when the Canucks
-take the cup!
+is: which game to choose? I want to be in Vancouver when the Canucks take the
+cup!
 
 ## Yay math!
 
@@ -31,15 +31,15 @@ get the following odds:
     0.125  0.25   0.3125 0.3125
 
 Based on this distribution, it seems that game 6 is more likely to see the end
-of the series than game 4, but then I would risk missing a game 4 victory. 
-[Sir Ken Robinson][] would be proud of this student of statistics.
+of the series than game 4, but then I would risk missing a game 4 victory.
+[Arthur Benjamin][] would be proud of me (unless my numbers are wrong).
 
 ## A bit of history
 
 Historical data tells a different story. As it turns out, the NHL is really
-old, dating back to YYYY, but the league switched to best-of-7 scoring in YYYY.
-Also, wikipedia has a great chronology of NHL playoffs, complete with scores
-and brackets.
+old, dating back to 1927, but the league switched to best-of-7 scoring in 1939.
+Wikipedia has a great chronology of NHL playoffs, complete with scores and
+brackets.
 
 I analyzed series scores from all playoff games in the last 25 years (since
 1985) by fetching raw wikipedia articles via wget and running them through a
@@ -56,8 +56,10 @@ matches:
     p(4)   p(5)   p(6)   p(7)
     0.16   0.24   0.33   0.27
 
-For finals games only, the distribution is more skewed, probably in part
-due to a shortage of data (just NN finals games from the [wikipedia page][]):
+For finals games only, the distribution is more skewed, probably in part due to
+a shortage of data (just NN finals games from the wikipedia page), but finals
+game history is probably a better predictor for finals games than all playoffs
+games, so this is worthwhile:
 
     p(4)   p(5)   p(6)   p(7)
     0.28   0.24   0.27   0.21
@@ -66,33 +68,37 @@ Here are all three distributions plotted in a graph:
 
 ![graph][]
 
-## Decision point
+## Analyzing...
 
 The most striking thing about this graph is the huge difference between finals
-history and stats. Perhaps some teams just buckle under the pressure, while
-their opponents remain steadfast. Or perhaps this is just a statistically
-insignificant fluke that can be attributed to too few finals matches.
+history and stats, especially in the 4 game series scenario. Perhaps some teams
+just buckle under the pressure, while their opponents remain steadfast. Or this
+is just a statistically insignificant fluke that can be attributed to having an
+insufficiently large sample of finals matches.
 
 As expected, the historical distributions are skewed toward the series
 finishing in Game 4 due to unequal strength between teams. In other words, if
-one team is slightly stronger than another, then the odds of that team winning
-each game would be greater, making the series shorter on average.
+one team is stronger than another, then the odds of that team winning each game
+would be greater, making the series shorter on average.
 
-What's odd about this, though, is this skewing doesn't extend to Game 5, for
-which the odds of finishing are lower than via pure stats.
+## Decision!
 
-Armed with numbers, I can decide whether to pick Game 4 or Game 6.  From the
-stats alone, the odds of seeing the Canucks win in Games 4 or 5 is 38% while
-the odds of seeing the victory in Games 5 or 6 is 58%. From all playoff games,
-the odds are, 40% and 57% respectively, and from just finals, the odds are 52%
-and 51%.
+Armed with numbers, I can decide whether to pick Game 4 or Game 6. Here are the
+odds of seeing the Canucks (yeah yeah, maybe the Bruins) win in games 4 or 5,
+compared to 5 or 6, as calculated from each of the three methods:
 
-The bottom line, though, is probability be damned, I would hate to miss a Game
-4 victory. Now to try to work from home, book flights and bask in Canuck glory!
+             Game 4 or 5            Game 5 or 6
+    Stats        38%                    58%
+    Playoffs     40%                    57%
+    Finals       52%                    51%
+
+Interesting. Given how annoying it would be to miss a Game 4 victory and how
+favorable the finals history-based odds look, I’ll go for 4 and 5. Now to try
+to work from home, book flights and bask in Canuck glory!
 
 [graph]: /media/images/blog/2011/nhl-series-odds.png
 [python script]: /x/nhl/
-[Sir Ken Robinson]: 
-[wikipedia page]: 
+[Arthur Benjamin]: http://www.ted.com/talks/arthur_benjamin_s_formula_for_changing_math_education.html
+[wikipedia page]: http://en.wikipedia.org/wiki/List_of_Stanley_Cup_champions
 
 {% endblock %}
