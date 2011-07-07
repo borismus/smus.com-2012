@@ -6,7 +6,9 @@
 <p class="related">Want to read more?</p>
 <ul>
 {% for post in posts %}
+{% if not post.hidden %}
 <li><a href="/{{post.page_name}}">{{post.title}}</a></li>
+{% endif %}
 {% endfor %}
 </ul>
 {% endif %}
