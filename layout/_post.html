@@ -11,12 +11,12 @@
 {% article %}
 <h1>
   {{ page.title }}
-  <a href="/"><img src="/media/images/nav/home.png"/></a>
 </h1>
 
 <div class="date">
   Posted <span class="relative" title="{{ page.created.date }}"></span> on
   <span class="absolute">{{ page.created.date }}</span>
+  <g:plusone size="small"></g:plusone>
 </div>
 
 {% block article %}
@@ -36,4 +36,14 @@
 <aside id="sidebar-low">
 {% include "skeleton/_sidebar_low.html" %}
 </aside>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
 {% endblock %}

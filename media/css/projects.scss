@@ -25,12 +25,6 @@ section#main article {
     background: #eee;
     -webkit-transition: all .2s ease-in-out;
     opacity: 0.7;
-
-    .title {
-      font-family: Helvetica, Verdana, Arial;
-      font-size: 18px;
-      font-weight: bold;
-    }
   }
 
   .back {
@@ -45,6 +39,11 @@ section#main article {
     p {
       margin-top: 0;
     }
+
+		.title {
+			font-size: 18px;
+			text-decoration: underline;
+		}
   }
 
   img {

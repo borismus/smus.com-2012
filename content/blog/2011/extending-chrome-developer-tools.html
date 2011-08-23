@@ -1,13 +1,12 @@
 {% extends "_post.html" %}
 {% hyde
 title: Extending Chrome Developer Tools
-snip: There are two ways to extend the devtools - write some chrome developer tools extensions, or modify the devtools themselves, which is remarkably easy!
-created: 2011-07-06 09:00:00
+snip: Make the devtools/webkit inspector even better by writing devtools extensions and submitting Javascript patches.
+created: 2011-07-11 15:00:00
 categories:
 - web
 - google
 - chrome
-hidden: yes
 %}
 
 {% block article %}
@@ -24,11 +23,12 @@ to go:
 1. You can extend the tools by writing chrome extensions that use the new
 `chrome.experimental.devtools` APIs. These recently created APIs are still
 subject to change, and marked experimental, so it’s a bit more difficult to
-distribute and install them (more on this later).
+distribute and install them compared to other chrome extension APIs (more on
+this later).
 
 2. You can quite easily hack the devtools code yourself, to customize it to
 your needs. Then, if you do a really good job, you can contribute your changes
-back to the chromium project and feel better.
+back to the chromium project and feel better for being such an awesome person.
 
 Let’s dive in, starting from the beginning.
 
@@ -44,11 +44,11 @@ Chrome provides [three separate APIs][apis] for extending the developer tools:
 3. Resources - access a [HAR file][har] containing known resources
 
 There are several [extension samples][samples] available as starting points,
-which cover all of the devtools extension API. From a user’s perspective, the
-API seems geared towards Audit-oriented extensions (HTML/CSS/Javascript
-validators, performance analyzers), Panel-oriented extensions (framework
-specific tooling, etc) as well as extensions that integrate more loosely with
-the developer tools (perhaps only using the resources API).
+which cover all of the devtools extension API. The API is geared towards
+Audit-oriented extensions (HTML/CSS/Javascript validators, performance
+analyzers) and Panel-oriented extensions (framework specific tooling, etc).
+You can also write extensions that integrate more loosely with the developer
+tools (perhaps only using the resources API).
 
 ### My JSHint audit extension
 
@@ -58,7 +58,8 @@ audit that checks all scripts (linked and inline) on the current page. Errors
 are shown per-script in the audit results view. I wanted to go further, and
 allow the user to click on the error and jump to the resource, but this wasn’t
 possible with the developer tools extension API. To get around this limitation,
-I patched the developer tools. More on modifying the devtools themselves later.
+I patched the developer tools with a pretty quick fix. More on modifying the
+devtools themselves later.
 
 Check out the JSHint audit extension [on github][github].
 
@@ -183,11 +184,7 @@ the default behavior.
 You can also easily make cosmetic tweaks to the devtools by changing the CSS.
 A lot of the base styles are implemented in `inspector.css`. For instance, for
 presentation purposes, the devtools are a bit small, so I find it useful to
-increase the size of the devtools, which is a one line CSS change!
-
-Finally, you can extend the devtools in a more meaningful, thought out way,
-and eventually contribute your changes back to the chromium project. I haven't
-done this yet, but stay tuned!
+increase the size of the devtools, which is a one line CSS change.
 
 There's already a ton of useful features packed into the devtools, but I bet
 you can come up with some more awesomeness to add as an extension or chromium
