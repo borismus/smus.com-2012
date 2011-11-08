@@ -1,56 +1,47 @@
-<!-- {% extends "_post.html" %} -->
+{% extends "_post.html" %}
 {% hyde
 title: 'Developing Multiplayer HTML5 Games with Node.js'
 snip: Introducing osmus, a multiplayer HTML5 game written with web sockets, canvas and a game engine that runs shared code on the client and server.
-created: 2011-08-26 09:00:36
+created: 2011-08-30 09:00:36
 categories:
 - web
 - games
 - multiplayer
-hidden: true
 %}
 
 {% block article %}
 
-One day I had some friends over at my house showing me some cool iPad
-games. One of the games was Osmos, also available on OS X, developed by
-an Canadian indie studio called [Hemisphere Games][hg]. You control a
-little blob that floats in 2D space, and the only thing your blob can do is
-shoot pieces of yourself in a given direction, which propels it in the
-opposite direction. The rules of the game are simple, following
-directly from conservation of mass and energy, the main rule being that
-when two blobs collide, the larger one will consume the smaller one. My
-description is pretty dry, so [see for yourself][osmos] - it's way better than
-it sounds!
+One day I had some friends over at my house introducing me some cool iPad
+games. One of the games was Osmos, developed by an Canadian indie studio called
+[Hemisphere Games][hg]. You control a little blob that floats in 2D space, and
+the only thing your blob can do is shoot pieces of itself in a given
+direction, which propels it in the opposite direction. The rules of the game
+are simple, the main rule being that when two blobs collide, the larger one
+will consume the smaller one. The rest of the rules pretty much follow directly
+from conservation of mass and energy. [See for yourself][osmos] - it's way
+better than it sounds!
 
 Osmos really caught my attention because of its simple but engaging gameplay,
 meditative pace and distinct **lack of multiplayer support**, which struck me
-as a potentially very interesting problem to tackle. And so, [osmus][] (mu for
+as a potentially very interesting problem to tackle. And so, [osMUs][] (mu for
 multiplayer) was born as a browser-based multiplayer Osmos clone.
 
-## How osmus works
+## How it works
 
 When a browser navigates to the osmus landing page, the server sends the new
 client the current state of its universe, which is composed of blobs with
 randomized velocities. At this point, the client can passively watch the game
-progress. For a more interactive experience, players can join the game as a
-named blob. Once a player joins, he can click or tap (on mobile) the canvas to
-shoot off a new blob in that direction and propel his blob in the opposite
-direction.
+progress, but of course, can also join the game as a player controlled blob.
+Once a player joins, he can click or tap (on mobile devices) the canvas to
+shoot off a new blob.
 
 As the game progresses, the server decides when someone (possibly one of the
 autonomous blobs) is victorious, at which point, players are notified and the
-game is restarted. The game can be viewed as a simple state machine:
+game is restarted.
 
-![state][]
-
-The rest of this post is about some of deeper development-related details
-So if you just want to play, [go ahead][osmus]. Osmus works on Chrome Stable
-(version 13) and iPad.
-
-Before I go, let me jump briefly into some of the issues I encountered when
-developing this game. I hope to have a more complete account in a future
-articles.
+The rest of this post is about some development-related details So if you just
+want to try it out, [go ahead][osmus]. Note, however, that Osmus works on
+Chrome Stable (version 13) and iPad.
 
 ## Game architecture
 
@@ -84,12 +75,12 @@ that draws blobs as red circles, and player blobs are green ones. My
 colleague [Arne Roomann-Kurrik][arne] wrote an alternative
 [three.js][3js] based renderer with some epic shaders and shadows.
 
-The sound manager handles playback of both the background music (taken from
-[8-bit Magic][8bit]) and sound effects. The current implementation uses audio
-tags, with two `<audio>` elements, one for the background music channel, and
-one for the sound effects. There are known limitations of this approach, but
-given the modularity of this implementation, can be swapped out for one that
-uses Chrome's [Web Audio API][webaudio], for example.
+The sound manager handles playback of both sound effects and background music
+(taken from [8-bit Magic][8bit]). The current implementation uses audio tags,
+with two `<audio>` elements, one for the background music channel, and one for
+the sound effects. There are known limitations of this approach, but given the
+modularity of my implementation, the sound implementation can be swapped out
+for one that uses Chrome's [Web Audio API][webaudio], for example.
 
 Finally, the input manager handles mouse events, but can be replaced with one
 that uses touch instead, for a mobile version. In the mobile context, it will
@@ -97,9 +88,9 @@ likely make sense to use CSS3 transformations instead of canvas, since CSS3 is
 hardware accelerated on iOS, while HTML5 canvas still isn't, and WebGL is not
 implemented.
 
-On that note, I'm happy to mention that osmus works pretty well on iPad,
-especially on an iPad 2 running the latest iOS version. This is really great,
-and one of the tangible benefits of writing games for the open web.
+Speaking of mobile, I was happily surprised that osmus works pretty well on
+iPad, especially on an iPad 2 running the latest iOS version. This is really
+great, and one of the tangible benefits of writing games for the open web.
 
 ## Networking is hard
 
@@ -109,12 +100,14 @@ bidirectional client-server communication is essential. In the modern web
 stack, this is provided by [Web Sockets][sockets] which supply a thin layer
 above TCP and hide a lot of gory details from the implementer. To further hide
 network stack details, I use the [socket.io][] library, which provides a dead
-simple event-driven abstraction for the whole thing.
+simple event-driven abstraction for the whole thing. Unfortunately there's
+currently no support for binary data, which would greatly compress message
+size, perhaps by an order of two magnitudes in the case of osmos.
 
 From a bit of research which included this [nice talk from Rob Hawkes][rob], it
 became clear that to have any sort of shared experience, the simplest model is
 to have the true game state on the server, and have clients periodically sync
-with it.  The main trade off here is synchronization quality vs. network
+with it. The main trade off here is synchronization quality vs. network
 traffic required.
 
 On one extreme, a game can be written by having the game logic entirely on the
@@ -131,11 +124,15 @@ need to duplicate functionality, but can instead share code by writing the game
 engine in JavaScript, and then running it in both a browser on the client, and
 in [node.js][] on the server.
 
+There's a lot more to be written about writing the multiplayer bits of osmus,
+which will hopefully turn into a more detailed article at some point in the
+future.
+
 ## Shared JS modules
 
 As mentioned earlier, osmus uses a physics engine that's shared between clients
-and the server, which is written in the same language (JavaScript). One might
-imagine that sharing code would be a breeze, but it's not that simple.
+and the server. One might imagine that sharing JavaScript code between the two
+would be a breeze, but it's not that simple.
 
 Module loaders are a mess. There's the [CommonJS spec][commonjs],
 [RequireJS library][requirejs] and node.js require system, none of which play
