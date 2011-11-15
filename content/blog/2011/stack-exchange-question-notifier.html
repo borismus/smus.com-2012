@@ -1,0 +1,55 @@
+{% extends "_post.html" %}
+{% hyde
+title: Stack Exchange question notifier
+created: 2011-11-15 09:00:00
+categories:
+snip: A Chrome extension to help with developer support on Stack Overflow and other Stack Exchange sites.
+%}
+
+{% block article %}
+I've been a member of the Chrome developer relations team for the last 9
+months, where one aspect of my job is developer support. I actively
+monitor the chromium-extensions@chromium.org list, answering questions
+about developing Chrome extensions. Thankfully, there are many others that
+help me in this endeavor, both from the Chrome team and from within the
+developer community itself, notably a certain [PhistucK][p], the current
+record holder for the number of messages posted to the list.
+
+Increasingly, however, another channel of questions has emerged:
+[Stack Overflow][so]. Stack Overflow is a great Q&A community for
+software developers with many advantages over ordinary discussion
+groups. Google has sponsored Stack Overflow tags, such as
+[google-chrome][], and [google-chrome-extension][]. As I outlined in an
+email to the group, Chrome extension developer support will eventually
+be shifting there.
+
+# New support tool
+
+As part of optimizing my support flow, I wrote a Chrome extension which
+monitors tags on Stack Exchange and gives notifications when new
+questions get posted. The extension implements a browser action which gets
+badged with the number of unreviewed questions. I find it to be useful
+when monitoring Stack Overflow for Chrome extension development.
+
+The extension UI uses the same visual style as other Google properties,
+and blends well into Chrome. I think it works quite well both in the
+options page and in a browser action:
+
+![screenshot][]
+
+If you support developers on Stack Overflow, please [install it][cws],
+give me constructive feedback and consider monitoring the
+[google-chrome-extension][] tag! Also, if you're curious to see how the
+extension is implemented source [is available][src]. This time I wrote
+in Closure-style JavaScript.
+
+
+[p]: http://goo.gl/di3kR
+[so]: http://stackoverflow.com/
+[google-chrome]: http://stackoverflow.com/questions/tagged/google-chrome
+[google-chrome-extension]: http://stackoverflow.com/questions/tagged/google-chrome-extension
+[screenshot]: /media/images/blog/2011/stack-screenshot.png
+[src]: https://github.com/borismus/Question-Monitor-for-Stack-Exchange
+[cws]: https://chrome.google.com/webstore/detail/bnnkhapbhkejookmhgpgaikfdoegkmdp
+
+{% endblock %}
