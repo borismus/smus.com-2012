@@ -4,16 +4,15 @@
 
 {% filter typogrify %}
 
-{% markdown %}
-
 <article>
 <h1>{{ page.title }}</h1>
 
+{% markdown2 %}
 {% block article %}
 {% endblock %}
+{% endmarkdown2 %}
 </article>
 
-{% endmarkdown %}
 
 {% endfilter %}
 

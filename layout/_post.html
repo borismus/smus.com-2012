@@ -4,7 +4,6 @@
 
 {% filter typogrify %}
 
-{% markdown %}
 
 <article>
 
@@ -19,14 +18,15 @@
   <g:plusone size="small"></g:plusone>
 </div>
 
+{% markdown2 %}
 {% block article %}
 {% endblock %}
+{% endmarkdown2 %}
+
 {% endarticle %}
 
 {% include "skeleton/_disqus.html" %}
 </article>
-  
-{% endmarkdown %}
 
 {% endfilter %}
 

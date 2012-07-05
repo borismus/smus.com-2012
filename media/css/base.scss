@@ -60,6 +60,12 @@ h3 { font-size: 20px; }
 
 p { margin: 15px 0; }
 
+blockquote {
+  padding-left: 10px;
+  border-left: 3px solid #ccc;
+  font-style: italic;
+}
+
 a, a:visited {
   text-decoration: none;
   border-bottom: 1px dotted #999;

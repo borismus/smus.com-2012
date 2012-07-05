@@ -1,3 +1,7 @@
+# Note: this code no longer powers smus.com
+
+# Please see <https://github.com/borismus/lightning>
+
 New design and engine for the move from borismus.com to smus.com
 
 Statically generated site.

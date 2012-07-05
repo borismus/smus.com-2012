@@ -1,5 +1,5 @@
 generate:
-	../hyde/hyde.py -g -s .
+	python2.7 ../hyde/hyde.py -g -s .
 
 continuous:
 	../hyde/hyde.py -g -k
